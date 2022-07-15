@@ -1,0 +1,715 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/*  --------- Main Styles ---------  */
+/*   -------- Main Styles --------  */
+/*    ------- Main Styles -------  */
+/*     ------ Main Styles ------  */
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    background: #1E213F;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 100vh;
+    
+}
+
+/* circle {
+  fill: none;
+  stroke: #f87070;
+  stroke-width: 2;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash4 1.5s ease-in-out infinite;
+ } */
+
+#pomodoro-h2 {
+    text-align: center;
+    color: #D7E0FF;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 24px;
+    margin-top: 5vh;
+
+}
+
+/* Mobile first */
+.break-window {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 9%;
+    max-height: 63px;
+    max-width: 327px;
+    background: #161932;
+    border-radius: 50px;
+    position: relative;
+    z-index: 0;
+}
+
+/* Mobile first */
+.break-btn-container {
+    margin: 0 auto;
+    max-width: 327px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+}
+
+/* Mobile first */
+/* Break Buttons */
+#pomodoro {
+    background: #161932;
+    color: #D7E0FF;
+    height: 48px;
+    width: 106px;
+    /* margin-left: 25px; */
+    border: none;
+    border-radius: 50px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+#pomodoro:hover, 
+#pomodoro:focus,
+#pomodoro:active {
+  background: #f87070;
+  color: #1E213F;
+  position: relative;
+  z-index: 1;
+
+}
+
+/* Mobile first */
+#short-break {
+    background: #161932;
+    color: #D7E0FF;
+    height: 48px;
+    width: 106px;
+    /* margin-left: 25px; */
+    border: none;
+    border-radius: 50px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    
+}
+
+#short-break:hover,
+#short-break:focus,
+#short-break:active {
+  background: #f87070;
+  color: #1E213F;
+  position: relative;
+  z-index: 1;
+
+}
+
+/* Mobile first */
+#long-break {
+    background: #161932;
+    color: #D7E0FF;
+    height: 48px;
+    width: 106px;
+    /* margin-left: 25px; */
+    border: none;
+    border-radius: 50px;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+#long-break:hover,
+#long-break:focus,
+#long-break:active {
+  background: #f87070;
+  color: #1E213F;
+  position: relative;
+  z-index: 1;
+
+}
+
+/* CLOCK CONTAINER AND CLOCK INNER PARTS */
+
+.clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    position: relative;
+    z-index: 0;
+}
+
+#circle-768px {
+  display: none;
+}
+
+
+.circle {
+
+    background: #1E213F;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1b1e39, #202343);
+    box-shadow:  33px 33px 45px #141529,
+             -33px -33px 45px #292d55;
+    z-index: -1;
+
+}
+
+
+.inner-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #1E213F;
+    box-shadow: inset 31px 31px 58px #14162b,
+            inset -31px -31px 58px #282c53;
+            z-index: 1;
+    
+}
+
+.clock-dial-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-dial {
+    margin-top: 18px;
+    width: 267.8px;
+    height: 267.8px;
+    border-radius: 50%;
+    background: #161932;
+
+}
+
+
+
+
+/* ------- LOADER ------- */
+
+.track {
+    /* stroke: #161932; */
+    fill: none;
+}
+
+.progress {
+    height: 248px;
+    width: 248px;
+    fill: none;
+    stroke: #F87070;
+    stroke-width: 8;
+    stroke-dasharray: 1002;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    transform: translate(-9%, 75%) rotate(-90deg);
+}
+
+
+/* ------- CLOCK NUMBERS ------- */
+
+.clock-numbers {
+    z-index: 10;
+    position: absolute;
+    color: #D7E0FF;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 80px;
+}
+
+/* ------- BUTTON PAUSE AND RESTART ------- */
+
+#btn-restart {
+    display: none;
+    position: absolute;
+    margin-left: 25px;
+    background: none;
+    border: none;
+    color: #D7E0FF;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 12px;
+    transform: translateY(63px);   
+    cursor: pointer; 
+}
+
+#btn-pause {
+    /* display: none; */
+    position: absolute;
+    margin-left: 15px;
+    background: none;
+    border: none;
+    color: #D7E0FF;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 12px;
+    transform: translateY(63px);   
+    cursor: pointer; 
+}
+
+/* -------------- SETTINGS GEAR BUTTON ------------- */
+
+.settings {
+  display: flex;
+  margin: 0 auto;
+}
+
+.settings img {
+  cursor: pointer;
+}
+
+
+#settings {
+  height: 28px;
+  width: 28px;
+  margin: 0 auto;
+  margin-top: 13vh;
+}
+
+/* -------------- SETTINGS WINDOW ------------- */
+
+.settings-window-wrap {
+  /* display: none; */
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  min-width: 327px;
+  min-height: 549px;
+  border-radius: 15px;
+  background: #fff;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 10vh;
+  overflow: hidden;
+  transform: translateY(-125%);
+}
+
+.settings-window {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.settings-header {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgb(204, 204, 204, 0.7);
+  justify-content: space-between;
+}
+
+.settings-header h3 {
+  font-family: 'Kumbh Sans', sans-serif;
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  color: #161932;
+  padding: 20px 0 30px 30px;
+}
+
+#close-window-btn {
+  background-image: url(images/X-close-window-btn.png);
+  background-color: transparent;
+  border: none;
+  height: 14px;
+  width: 14px;
+  margin: 30px 30px 30px 30px;
+  cursor: pointer;
+}
+
+.settings-time-settings {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 30px;
+}
+
+.settings-time-settings:last-child(3) {
+  border: 1px solid rgb(204, 204, 204, 0.5);
+}
+
+.time-h4 {
+  text-align: center;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 4.23px;
+  padding: 20px 0;
+
+}
+
+.settings-time-label {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 12px;
+  color: #1E213F;
+  opacity: 40%;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    border: 8px solid;
+    border-color: #fe8369 transparent transparent transparent;
+  }
+
+input[type=number]::-webkit-outer-spin-button {  
+
+   opacity: 0.2;
+
+}
+
+input {
+  width: 140px;
+  height: 40;
+  background: #EFF1FA;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 14px;
+  
+}
+
+
+/* ---------------- MEDIA QUERIES ----------------- */
+/* ---------------- MEDIA QUERIES ----------------- */
+/* ---------------- MEDIA QUERIES ----------------- */
+/* ---------------- MEDIA QUERIES ----------------- */
+/* ---------------- MEDIA QUERIES ----------------- */
+/* ---------------- MEDIA QUERIES ----------------- */
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+ {
+
+  #pomodoro-h2 {
+    text-align: center;
+    color: #D7E0FF;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 32px;
+    margin-top: 5vh;
+  }
+
+
+  .break-window {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5vh;
+    height: 63px;
+    max-width: 373px;
+    background: #161932;
+    border-radius: 50px;
+    z-index: 99;
+}
+
+.break-btn-container {
+    margin: 0 auto;
+    max-width: 373px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 99;
+    
+}
+
+
+#pomodoro {
+    background: #161932;
+    color: #D7E0FF;
+    height: 48px;
+    /* Width for screen size over 768px */
+    width: 120px; 
+    border: none;
+    border-radius: 50px;
+    font-family: 'Kumbh Sans', sans-serif;
+    /* Font size for screen size over 768px */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 8;
+}
+
+#pomodoro:hover, 
+#pomodoro:focus,
+#pomodoro:active {
+  background: #f87070;
+  color: #1E213F;
+}
+
+#short-break {
+    /* background: #F87070; */
+    color: #D7E0FF;
+    height: 48px;
+    /* Width for screen size over 768px */
+    width: 120px; 
+    border: none;
+    border-radius: 50px;
+    font-family: 'Kumbh Sans', sans-serif;
+    /* Font size for screen size over 768px */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 8;
+}
+
+#short-break:hover,
+#short-break:focus,
+#short-break:active {
+  background: #f87070;
+  color: #1E213F;
+}
+
+#long-break {
+    /* background: #F87070; */
+    color: #D7E0FF;
+    height: 48px;
+    /* Width for screen size over 768px */
+    width: 120px; 
+    border: none;
+    border-radius: 50px;
+    font-family: 'Kumbh Sans', sans-serif;
+    /* Font size for screen size over 768px */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 8;
+}
+
+#long-break:hover,
+#long-break:focus,
+#long-break:active {
+  background: #f87070;
+  color: #1E213F;
+}
+
+
+/* ----------------- CLOCK STYLING --------------- */
+
+
+
+
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  z-index: 1;
+}
+
+
+.circle {
+  background: #1E213F;
+  width: 410px;
+  height: 410px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1b1e39, #202343);
+  box-shadow:  33px 33px 65px #141529,
+           -33px -33px 65px #292d55;
+}
+
+
+.inner-circle {
+  width: 410px;
+  height: 410px;
+  border-radius: 50%;
+  background: #1E213F;
+  box-shadow: inset 31px 31px 58px #14162b,
+          inset -31px -31px 58px #282c53;
+}
+
+.clock-dial-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-dial {
+  margin-top: 23px;
+  width: 364px;
+  height: 364px;
+  border-radius: 50%;
+  background: #161932;
+}
+
+#circle-768px {
+  display: block;
+}
+
+#circle-mobile {
+  display: none;
+}
+
+/* ------- LOADER ------- */
+
+.track {
+  stroke: #161932;
+  fill: none;
+}
+
+.progress {
+  height: 355px;
+  width: 355px;
+  fill: none;
+  stroke: #F87070;
+  stroke-width: 10;
+  stroke-dasharray: 1002;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  transform: translate(0.3%, 89%) rotate(-90deg);
+}
+
+
+/* ------- CLOCK NUMBERS ------- */
+
+.clock-numbers {
+  z-index: 10;
+  position: absolute;
+  color: #D7E0FF;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 100px;
+}
+
+/* ------- BUTTON PAUSE AND RESTART ------- */
+
+#btn-restart {
+  display: none;
+  position: absolute;
+  margin-left: 25px;
+  background: none;
+  border: none;
+  color: #D7E0FF;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 12px;
+  transform: translateY(95px);   
+  cursor: pointer; 
+}
+
+#btn-pause {
+  /* display: none; */
+  position: absolute;
+  margin-left: 15px;
+  background: none;
+  border: none;
+  color: #D7E0FF;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 12px;
+  transform: translateY(95px);   
+  cursor: pointer; 
+}
+
+
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
