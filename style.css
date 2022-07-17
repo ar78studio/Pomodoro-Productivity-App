@@ -84,19 +84,17 @@ body {
     background: #1E213F;
     margin: 0 auto;
     overflow: hidden;
-    height: 100vh;
     
 }
 
-/* circle {
-  fill: none;
-  stroke: #f87070;
-  stroke-width: 2;
-  stroke-dasharray: 1, 200;
-  stroke-dashoffset: 0;
-  stroke-linecap: round;
-  animation: dash4 1.5s ease-in-out infinite;
- } */
+.main-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
 
 #pomodoro-h2 {
     text-align: center;
@@ -109,7 +107,7 @@ body {
 
 /* Mobile first */
 .break-window {
-    display: flex;
+    /* display: flex; */
     margin: 0 auto;
     margin-top: 9%;
     max-height: 63px;
@@ -360,12 +358,15 @@ body {
 
 .settings-window-wrap {
   /* display: none; */
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
+  display: flex;
   margin: 0 auto;
-  min-width: 327px;
-  min-height: 549px;
+}
+
+.settings-window {
+  width: 327px;
+  height: 549px;
+  /* max-width: 540px;
+  max-height: 490px; */
   border-radius: 15px;
   background: #fff;
   margin-left: 25px;
@@ -373,11 +374,8 @@ body {
   margin-top: 10vh;
   overflow: hidden;
   transform: translateY(-125%);
-}
-
-.settings-window {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -409,14 +407,18 @@ body {
 
 .settings-time-settings {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
   align-items: center;
-  margin: 5px 30px;
+  margin: 10px 30px;
 }
 
-.settings-time-settings:last-child(3) {
-  border: 1px solid rgb(204, 204, 204, 0.5);
+
+
+.settings-time-label {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 12px;
+  color: #1E213F;
+  opacity: 40%;
 }
 
 .time-h4 {
@@ -425,16 +427,141 @@ body {
   font-size: 11px;
   font-weight: bold;
   letter-spacing: 4.23px;
-  padding: 20px 0;
-
+  padding: 15px 0;
 }
 
-.settings-time-label {
-  font-family: 'Kumbh Sans', sans-serif;
-  font-size: 12px;
+/* -------------- SETTINGS FONT SELECTION STYLING ---------------- */
+
+.settings-font-selection {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 60%;
+}
+
+#kumbh-sans {
+  font-family: 'Kumbh Sans';
+}
+
+#roboto-slab {
+  font-family: 'Roboto Slab';
+  font-weight: 400;
+}
+
+#space-mono {
+  font-family: 'Space Mono';
+}
+
+/* Bottom Border Line under Heading "FONT" */
+.devider-line {
+  border-bottom: 1px solid rgb(204, 204, 204, 0.5);
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 85%;
+}
+
+.font-selection {
+  display: grid;
+  place-items: center;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #EFF1FA;
+  font-family: inherit;
+  font-size: 15px;
   color: #1E213F;
-  opacity: 40%;
+  cursor: pointer;
 }
+
+.font-selection:hover {
+  background: #161932;
+  color: #fff;
+}
+.font-selection:focus {
+  background: #161932;
+  color: #fff;
+}
+
+.font-selection:active {
+  background: #161932;
+  color: #fff;
+}
+
+/* -------------- SETTINGS COLOR SELECTION BUTTONS STYLING ---------------- */
+
+.settings-color-selection {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.color-selection {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#orange-color-F87070 {
+  background: #F87070;
+  justify-content: center;
+  align-items: center;
+}
+
+#blue-color-70F3F8 {
+  background: #70F3F8;
+}
+
+#purple-color-D881F8 {
+  background: #D881F8;
+}
+
+#orange-color-F87070:hover {
+  transform: scale(1.1);
+}
+
+#orange-color-F87070:hover,
+#orange-color-F87070:focus {
+  background-image: url(images/check-mark.png);
+  background-position: center;
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+}
+
+#blue-color-70F3F8:hover {
+  transform: scale(1.1);
+}
+
+#blue-color-70F3F8:hover,
+#blue-color-70F3F8:focus {
+  background-image: url(images/check-mark.png);
+  background-position: center;
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+}
+
+#purple-color-D881F8:hover {
+  transform: scale(1.1);
+}
+
+#purple-color-D881F8:hover,
+#purple-color-D881F8:focus {
+  background-image: url(images/check-mark.png);
+  background-position: center;
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+}
+
+/* ------------------ INPUT ARROWS INSIDE THE TIME BOXES ------------------ */
 
 input[type=number]::-webkit-inner-spin-button {
     content: '';
@@ -447,7 +574,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 input[type=number]::-webkit-outer-spin-button {  
 
-   opacity: 0.2;
+   opacity: 0.5;
 
 }
 
@@ -473,8 +600,8 @@ input {
 
 
 /* iPads (portrait and landscape) ----------- */
-@media only screen 
-and (min-device-width : 768px) 
+
+@media (min-device-width : 768px) 
  {
 
   #pomodoro-h2 {
@@ -485,6 +612,30 @@ and (min-device-width : 768px)
     margin-top: 5vh;
   }
 
+  /* Settings Window Header  */
+
+  .settings-header {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid rgb(204, 204, 204, 0.7);
+    justify-content: space-between;
+  }
+  
+  .settings-header h3 {
+    font-family: 'Kumbh Sans', sans-serif;
+    /* text-align: left; */
+    font-size: 20px;
+    font-weight: bold;
+    color: #161932;
+    padding: 20px 0px 30px 40px;
+  }
+
+  #close-window-btn {
+    margin-right: 40px;
+  }
+
+  /* End Settings Window Header  */
+
 
   .break-window {
     display: flex;
@@ -494,7 +645,8 @@ and (min-device-width : 768px)
     max-width: 373px;
     background: #161932;
     border-radius: 50px;
-    z-index: 99;
+    position: relative;
+    z-index: 0;
 }
 
 .break-btn-container {
@@ -503,9 +655,10 @@ and (min-device-width : 768px)
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    z-index: 99;
+    position: relative;
+    z-index: 0;
     
-}
+} 
 
 
 #pomodoro {
@@ -579,9 +732,6 @@ and (min-device-width : 768px)
 
 
 /* ----------------- CLOCK STYLING --------------- */
-
-
-
 
 .clock-container {
   display: flex;
@@ -699,7 +849,103 @@ and (min-device-width : 768px)
 }
 
 
+/* ------------------- SETTINGS WINDOW STYLING -------------------- */
+.settings-window-wrap {
+  /* display: none; */
+  display: flex; 
+  position: absolute;
+  transform: translateY(100%);
+  margin: 0 auto;
+  z-index: 1;
 }
+
+.settings-window {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-width: 540px;
+  max-height: 464px;
+  background: #fff;
+  /* margin: 0 30px; */
+  overflow: hidden;
+}
+
+.time-h4 {
+  text-align: start;
+  margin: 0 40px;
+  font-size: 13px;
+}
+
+.set-timings {
+  display: flex;
+  margin: 0 auto;
+}
+
+
+
+/* Start Time Input Boxes  */
+.settings-time-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: -10px;
+  justify-content: space-between;
+}
+
+
+.settings-time-label {
+  margin-bottom: 10px;
+}
+
+.input-boxes {
+  width: 140px;
+  height: 48px;
+}
+
+#long-break-nmbs {
+  margin-right: 40px;
+}
+
+/* End Time Input Boxes  */
+
+.font-selection-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0 5px 0;
+}
+
+.settings-font-selection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 40px;
+  width: 100%;
+}
+
+.font-selection {
+  margin-left: 20px;
+}
+
+.color-selection-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0 5px 0;
+}
+
+.settings-color-selection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 40px;
+  width: 100%;
+}
+
+.color-selection {
+  margin-left: 20px;
+}
+
+}
+/* --------------------- End Media Quereis ------------------------ */
 
 
 /* Desktops and laptops ----------- */
