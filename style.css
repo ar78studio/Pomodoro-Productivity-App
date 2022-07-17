@@ -561,20 +561,38 @@ body {
   background-repeat: no-repeat;
 }
 
+/* Start Apply Settings Button  */
+
+.apply-settings-btn {
+  display: flex;
+  /* margin: 0 auto; */
+}
+
+.apply-settings-btn button {
+  width: 140px;
+  height: 53px;
+  margin: 0 auto;
+  background: #F87070;
+  color: #fff;
+  font-family: inherit;
+  border: none;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 5;
+  top: 77%;
+  transform: translateX(-185%);
+  cursor: pointer;
+}
+/* End Apply Settings Button  */
+
+
 /* ------------------ INPUT ARROWS INSIDE THE TIME BOXES ------------------ */
 
-input[type=number]::-webkit-inner-spin-button {
-    content: '';
-    position: absolute;
-    top: 5px;
-    right: 7px;
-    border: 8px solid;
-    border-color: #fe8369 transparent transparent transparent;
-  }
-
+input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button {  
 
-   opacity: 0.5;
+   opacity: 1;
+   cursor: pointer;
 
 }
 
@@ -943,6 +961,30 @@ input {
 .color-selection {
   margin-left: 20px;
 }
+
+/* Start Apply Settings Button  */
+
+.apply-settings-btn {
+  display: flex;
+  /* margin: 0 auto; */
+}
+
+.apply-settings-btn button {
+  width: 140px;
+  height: 53px;
+  margin: 0 auto;
+  background: #F87070;
+  color: #fff;
+  font-family: inherit;
+  border: none;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 5;
+  top: -31%;
+  transform: translateX(-240%);
+  cursor: pointer;
+}
+/* End Apply Settings Button  */
 
 }
 /* --------------------- End Media Quereis ------------------------ */
