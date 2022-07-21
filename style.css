@@ -82,27 +82,27 @@ select {
 body {
     font-family: 'Kumbh Sans', sans-serif;
     background: #1E213F;
-    margin: 0 auto;
-    overflow: hidden;
-    
+    position: relative;
+    /* overflow: hidden; */
 }
 
 .main-wrap {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-
 #pomodoro-h2 {
+    margin: 0 auto;
     text-align: center;
     color: #D7E0FF;
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 24px;
-    margin-top: 5vh;
-
+    margin-top: 5%;
 }
 
 /* Mobile first */
@@ -115,7 +115,7 @@ body {
     background: #161932;
     border-radius: 50px;
     position: relative;
-    z-index: 0;
+    z-index: 1;
 }
 
 /* Mobile first */
@@ -126,7 +126,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     position: relative;
-    z-index: 0;
+    z-index: 1;
 }
 
 /* Mobile first */
@@ -218,7 +218,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10vh;
+    margin-top: 15%;
     position: relative;
     z-index: 0;
 }
@@ -357,23 +357,19 @@ body {
 /* -------------- SETTINGS WINDOW ------------- */
 
 .settings-window-wrap {
-  /* display: none; */
   display: flex;
   margin: 0 auto;
+  /* margin-top: 10vh; */
 }
 
 .settings-window {
+  /* display: none; */
   width: 327px;
   height: 549px;
-  /* max-width: 540px;
-  max-height: 490px; */
   border-radius: 15px;
   background: #fff;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-top: 10vh;
-  overflow: hidden;
-  transform: translateY(-125%);
+  margin: 0 auto;
+  transform: translateY(-100%);
   position: relative;
   z-index: 1;
 }
@@ -427,7 +423,7 @@ body {
   font-size: 11px;
   font-weight: bold;
   letter-spacing: 4.23px;
-  padding: 15px 0;
+  padding: 15px 0 12px 0;
 }
 
 /* -------------- SETTINGS FONT SELECTION STYLING ---------------- */
@@ -474,10 +470,26 @@ body {
   cursor: pointer;
 }
 
-.font-selection:hover {
-  background: #161932;
-  color: #fff;
+/* .font-selection-hover {
+  display: grid;
+  place-items: center;
+  border: 2px solid rgb(239, 241, 250);
+  background: transparent;
+  border-width: 2px
+
+} */
+
+.font-selection-hover:hover {
+  display: grid;
+  place-items: center;
+  height: 50px;
+  width: 50px;
+  border: 2px solid rgb(239, 241, 250);
+  background: transparent;
+  border-radius: 50%;
+  /* transform: scale(1.2); */
 }
+
 .font-selection:focus {
   background: #161932;
   color: #fff;
@@ -561,28 +573,29 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Start Apply Settings Button  */
+/* --------------- Start Apply Settings Button -------------- */
 
 .apply-settings-btn {
   display: flex;
-  /* margin: 0 auto; */
+  position: relative;
+  /* z-index: 2; */
 }
 
 .apply-settings-btn button {
   width: 140px;
   height: 53px;
-  margin: 0 auto;
   background: #F87070;
   color: #fff;
   font-family: inherit;
   border: none;
   border-radius: 50px;
   position: absolute;
-  z-index: 5;
-  top: 77%;
-  transform: translateX(-185%);
+  left: 28%;
+  transform: translateY(50%);
   cursor: pointer;
 }
+
+
 /* End Apply Settings Button  */
 
 
@@ -619,46 +632,26 @@ input {
 
 /* iPads (portrait and landscape) ----------- */
 
-@media (min-device-width : 768px) 
+@media (min-width : 768px) 
  {
+
+ /* .main-wrap {
+  display: flex;
+ } */
 
   #pomodoro-h2 {
     text-align: center;
     color: #D7E0FF;
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 32px;
-    margin-top: 5vh;
+    margin-top: 10%;
   }
-
-  /* Settings Window Header  */
-
-  .settings-header {
-    display: flex;
-    width: 100%;
-    border-bottom: 1px solid rgb(204, 204, 204, 0.7);
-    justify-content: space-between;
-  }
-  
-  .settings-header h3 {
-    font-family: 'Kumbh Sans', sans-serif;
-    /* text-align: left; */
-    font-size: 20px;
-    font-weight: bold;
-    color: #161932;
-    padding: 20px 0px 30px 40px;
-  }
-
-  #close-window-btn {
-    margin-right: 40px;
-  }
-
-  /* End Settings Window Header  */
 
 
   .break-window {
     display: flex;
     margin: 0 auto;
-    margin-top: 5vh;
+    margin-top: 7%;
     height: 63px;
     max-width: 373px;
     background: #161932;
@@ -755,7 +748,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 15%;
   z-index: 1;
 }
 
@@ -868,25 +861,54 @@ input {
 
 
 /* ------------------- SETTINGS WINDOW STYLING -------------------- */
+
+
+
+
 .settings-window-wrap {
   /* display: none; */
-  display: flex; 
-  position: absolute;
-  transform: translateY(100%);
   margin: 0 auto;
-  z-index: 1;
+  position: relative;
+  /* margin-top: 10vh; */
 }
 
 .settings-window {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  min-width: 540px;
-  max-height: 464px;
+  width: 540px;
+  height: 464px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -170%);
+  position: absolute;
   background: #fff;
-  /* margin: 0 30px; */
-  overflow: hidden;
 }
+
+/* Settings Window Header  */
+
+ .settings-header {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgb(204, 204, 204, 0.7);
+  justify-content: space-between;
+}
+
+.settings-header h3 {
+  font-family: 'Kumbh Sans', sans-serif;
+  /* text-align: left; */
+  font-size: 20px;
+  font-weight: bold;
+  color: #161932;
+  padding: 20px 0px 30px 40px;
+}
+
+#close-window-btn {
+  margin-right: 40px;
+}
+
+/* End Settings Window Header  */
+
 
 .time-h4 {
   text-align: start;
@@ -962,28 +984,32 @@ input {
   margin-left: 20px;
 }
 
-/* Start Apply Settings Button  */
+/* --------------- Start Apply Settings Button ------------------ */
 
 .apply-settings-btn {
   display: flex;
-  /* margin: 0 auto; */
+  position: relative;
 }
 
 .apply-settings-btn button {
   width: 140px;
   height: 53px;
-  margin: 0 auto;
   background: #F87070;
   color: #fff;
   font-family: inherit;
   border: none;
   border-radius: 50px;
   position: absolute;
-  z-index: 5;
-  top: -31%;
-  transform: translateX(-240%);
+  left: 36%;
+  transform: translateY(65%);
   cursor: pointer;
 }
+
+.apply-settings-btn button:hover {
+  background: #fa8a8a;
+
+}
+
 /* End Apply Settings Button  */
 
 }
