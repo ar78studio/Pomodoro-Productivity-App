@@ -1,2 +1,5 @@
 /style_large_screen_only.css
 /index_large_screen_only.html
+/tests
+/tests/button.scss
+/tests/button.html

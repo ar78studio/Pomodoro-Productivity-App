@@ -337,12 +337,12 @@ body {
 
 /* -------------- SETTINGS GEAR BUTTON ------------- */
 
-.settings {
+.settings-gear-btn {
   display: flex;
   margin: 0 auto;
 }
 
-.settings img {
+.settings-gear-btn img {
   cursor: pointer;
 }
 
@@ -351,7 +351,7 @@ body {
   height: 28px;
   width: 28px;
   margin: 0 auto;
-  margin-top: 13vh;
+  margin-top: 5em;
 }
 
 /* -------------- SETTINGS WINDOW ------------- */
@@ -363,7 +363,7 @@ body {
 }
 
 .settings-window {
-  /* display: none; */
+  display: none;
   width: 327px;
   height: 549px;
   border-radius: 15px;
@@ -470,24 +470,67 @@ body {
   cursor: pointer;
 }
 
-/* .font-selection-hover {
-  display: grid;
-  place-items: center;
-  border: 2px solid rgb(239, 241, 250);
-  background: transparent;
-  border-width: 2px
+/* .font-selection {
+  -webkit-transition: box-shadow 0.2s ease;
+  -moz-transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 50%;
+  color: #ffb600;
+  display: inline-block;
+  font-size: .889em;
+  margin: 0 1em 1em;
+  position: relative;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  line-height: 2em;
+}
 
+.font-selection:hover {
+  box-shadow: 0 0 0 7px #fff; 
+}
+
+.font-selection:before {
+  -webkit-transform: scale(0.925);
+  -moz-transform: scale(0.925);
+  -ms-transform: scale(0.925);
+  -o-transform: scale(0.925);
+  transform: scale(0.925);
+  box-shadow: 0 0 0 1px #fff;
+  opacity: .5; 
+}
+
+
+.font-selection:before {
+-webkit-transition: all 0.2s ease;
+-moz-transition: all 0.2s ease;
+transition: all 0.2s ease;
+border-radius: 50%;
+bottom: 0;
+box-shadow: 0 0 0 1px #fff;
+content: '';
+left: 0;
+position: absolute;
+right: 0;
+top: 0;
 } */
 
-.font-selection-hover:hover {
+
+
+.space-mono-hover:hover,
+.roboto-slab-hover:hover,
+.kumbh-sans-hover:hover {
   display: grid;
   place-items: center;
   height: 50px;
   width: 50px;
-  border: 2px solid rgb(239, 241, 250);
+  border: 1px solid rgb(239, 241, 250);
   background: transparent;
   border-radius: 50%;
-  /* transform: scale(1.2); */
+  position: relative;
+  
 }
 
 .font-selection:focus {
@@ -644,14 +687,14 @@ input {
     color: #D7E0FF;
     font-family: 'Kumbh Sans', sans-serif;
     font-size: 32px;
-    margin-top: 10%;
+    margin-top: 5rem;
   }
 
 
   .break-window {
     display: flex;
     margin: 0 auto;
-    margin-top: 7%;
+    margin-top: 3em;
     height: 63px;
     max-width: 373px;
     background: #161932;
@@ -869,7 +912,7 @@ input {
   /* display: none; */
   margin: 0 auto;
   position: relative;
-  /* margin-top: 10vh; */
+  margin-top: 10rem;
 }
 
 .settings-window {
@@ -885,7 +928,7 @@ input {
   background: #fff;
 }
 
-/* Settings Window Header  */
+/* ---------------- Start Settings Window Header ------------  */
 
  .settings-header {
   display: flex;
@@ -907,7 +950,7 @@ input {
   margin-right: 40px;
 }
 
-/* End Settings Window Header  */
+/* ---------------- End Settings Window Header ------------  */
 
 
 .time-h4 {
@@ -923,7 +966,7 @@ input {
 
 
 
-/* Start Time Input Boxes  */
+/* ---------------- Start Time Input Boxes ------------  */
 .settings-time-settings {
   display: flex;
   flex-direction: column;
@@ -946,7 +989,9 @@ input {
   margin-right: 40px;
 }
 
-/* End Time Input Boxes  */
+/* ---------------- End Time Input Boxes ------------  */
+
+/* ---------------- Start Settings Font Selection ------------  */
 
 .font-selection-wrap {
   display: flex;
@@ -960,11 +1005,30 @@ input {
   align-items: center;
   margin-right: 40px;
   width: 100%;
+
+}
+
+.space-mono-hover:hover,
+.roboto-slab-hover:hover,
+.kumbh-sans-hover:hover {
+  display: grid;
+  place-items: center;
+  height: 50px;
+  width: 50px;
+  /* border: 1px solid rgb(239, 241, 250); */
+  box-shadow: ;
+  background: transparent;
+  border-radius: 50%;
+  margin-left: 20px;
 }
 
 .font-selection {
   margin-left: 20px;
 }
+
+/* ---------------- End Settings Font Selection ------------  */
+
+/* ---------------- Start Settings Color Selection ------------  */
 
 .color-selection-wrap {
   display: flex;
@@ -984,6 +1048,9 @@ input {
   margin-left: 20px;
 }
 
+/* ---------------- End Settings Color Selection ------------  */
+
+
 /* --------------- Start Apply Settings Button ------------------ */
 
 .apply-settings-btn {
@@ -1000,7 +1067,7 @@ input {
   border: none;
   border-radius: 50px;
   position: absolute;
-  left: 36%;
+  left: 38%;
   transform: translateY(65%);
   cursor: pointer;
 }
