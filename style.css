@@ -337,7 +337,8 @@ body {
 
 /* -------------- SETTINGS GEAR BUTTON ------------- */
 
-.settings-btn {
+/* Original code styling for <a></a> link button interefered with the Settings window staying open */
+/* .settings-btn {
   display: flex;
   margin: 0 auto;
 }
@@ -352,7 +353,21 @@ body {
   width: 28px;
   margin: 0 auto;
   margin-top: 5em;
+} */
+
+.settings-btn {
+  height: 1.75rem;
+  width: 1.75rem;
 }
+
+#settings-gear-btn {
+background: transparent;
+border: none;
+cursor: pointer;
+margin: 0 auto;
+margin-top: 6rem;
+}
+
 
 /* -------------- SETTINGS WINDOW ------------- */
 
