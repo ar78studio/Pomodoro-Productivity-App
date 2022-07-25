@@ -356,8 +356,8 @@ body {
 } */
 
 .settings-btn {
-  height: 1.75rem;
-  width: 1.75rem;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
 #settings-gear-btn {
@@ -366,6 +366,14 @@ border: none;
 cursor: pointer;
 margin: 0 auto;
 margin-top: 6rem;
+}
+
+#settings-gear-btn:hover {
+  
+}
+
+#gear-img:hover {
+  background-color: #D7E0FF;
 }
 
 
