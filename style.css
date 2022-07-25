@@ -337,17 +337,17 @@ body {
 
 /* -------------- SETTINGS GEAR BUTTON ------------- */
 
-.settings-gear-btn {
+.settings-btn {
   display: flex;
   margin: 0 auto;
 }
 
-.settings-gear-btn img {
+.settings-btn img {
   cursor: pointer;
 }
 
 
-#settings {
+#settings-gear-btn {
   height: 28px;
   width: 28px;
   margin: 0 auto;
@@ -905,15 +905,24 @@ input {
 
 /* ------------------- SETTINGS WINDOW STYLING -------------------- */
 
-
-
-
 .settings-window-wrap {
   /* display: none; */
+  /* visibility: hidden; */
   margin: 0 auto;
   position: relative;
   margin-top: 10rem;
+  z-index: 2;
 }
+
+.settings-window-hidden {
+   visibility: hidden;
+   /* display: none; */
+}
+
+.settings-window-visible {
+  /* display: block; */
+  visibility: visible;
+} 
 
 .settings-window {
   display: flex;
@@ -926,6 +935,7 @@ input {
   transform: translate(-50%, -170%);
   position: absolute;
   background: #fff;
+  z-index: 2;
 }
 
 /* ---------------- Start Settings Window Header ------------  */
@@ -1015,8 +1025,6 @@ input {
   place-items: center;
   height: 50px;
   width: 50px;
-  /* border: 1px solid rgb(239, 241, 250); */
-  box-shadow: ;
   background: transparent;
   border-radius: 50%;
   margin-left: 20px;
