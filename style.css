@@ -79,11 +79,16 @@ select {
 /*    ------- Main Styles -------  */
 /*     ------ Main Styles ------  */
 
+:root {
+  --kumbhsans-font: 'Kumbh Sans', sans-serif;
+  --robotoslab-font: 'Roboto Slab', sans-serif;
+  --spacemono-font: 'Space Mono', sans-serif;
+}
+
 body {
     font-family: 'Kumbh Sans', sans-serif;
     background: #1E213F;
     position: relative;
-    /* overflow: hidden; */
 }
 
 .main-wrap {
@@ -100,7 +105,7 @@ body {
     margin: 0 auto;
     text-align: center;
     color: #D7E0FF;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     font-size: 24px;
     margin-top: 5%;
 }
@@ -139,7 +144,7 @@ body {
     /* margin-left: 25px; */
     border: none;
     border-radius: 50px;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
@@ -166,7 +171,7 @@ body {
     /* margin-left: 25px; */
     border: none;
     border-radius: 50px;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
@@ -194,7 +199,7 @@ body {
     /* margin-left: 25px; */
     border: none;
     border-radius: 50px;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
@@ -297,7 +302,7 @@ body {
     z-index: 10;
     position: absolute;
     color: #D7E0FF;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     font-size: 80px;
 }
 
@@ -310,7 +315,7 @@ body {
     background: none;
     border: none;
     color: #D7E0FF;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     font-size: 28px;
     font-weight: bold;
     font-size: 14px;
@@ -326,7 +331,7 @@ body {
     background: none;
     border: none;
     color: #D7E0FF;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     font-size: 28px;
     font-weight: bold;
     font-size: 14px;
@@ -337,7 +342,7 @@ body {
 
 /* -------------- SETTINGS GEAR BUTTON ------------- */
 
-/* Original code styling for <a></a> link button interefered with the Settings window staying open */
+/* Original code styling for <a></a> link button interefered with the Settings window staying open replaced with <button></button> and styled accordingly */
 /* .settings-btn {
   display: flex;
   margin: 0 auto;
@@ -355,10 +360,6 @@ body {
   margin-top: 5em;
 } */
 
-.settings-btn {
-  height: 2.5rem;
-  width: 2.5rem;
-}
 
 #settings-gear-btn {
 background: transparent;
@@ -368,32 +369,47 @@ margin: 0 auto;
 margin-top: 6rem;
 }
 
-#settings-gear-btn:hover {
-  
+
+#gear-icon {
+  color: #D7E0FF;
+  opacity: 0.5;
 }
 
-#gear-img:hover {
-  background-color: #D7E0FF;
+#gear-icon:hover {
+  color: #D7E0FF;
+  opacity: 1;
 }
 
 
 /* -------------- SETTINGS WINDOW ------------- */
 
+.settings-window-hidden {
+  visibility: hidden;
+  /* display: none; */
+}
+
+.settings-window-visible {
+ /* display: block; */
+ visibility: visible;
+} 
+
+
 .settings-window-wrap {
   display: flex;
   margin: 0 auto;
-  /* margin-top: 10vh; */
+  position: relative;
 }
 
 .settings-window {
-  display: none;
   width: 327px;
   height: 549px;
   border-radius: 15px;
   background: #fff;
   margin: 0 auto;
-  transform: translateY(-100%);
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -105%);
   z-index: 1;
 }
 
@@ -406,7 +422,7 @@ margin-top: 6rem;
 }
 
 .settings-header h3 {
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--kumbhsans-font);
   text-align: left;
   font-size: 20px;
   font-weight: bold;
@@ -434,7 +450,7 @@ margin-top: 6rem;
 
 
 .settings-time-label {
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--kumbhsans-font);
   font-size: 12px;
   color: #1E213F;
   opacity: 40%;
@@ -442,7 +458,7 @@ margin-top: 6rem;
 
 .time-h4 {
   text-align: center;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--kumbhsans-font);
   font-size: 11px;
   font-weight: bold;
   letter-spacing: 4.23px;
@@ -459,16 +475,16 @@ margin-top: 6rem;
 }
 
 #kumbh-sans {
-  font-family: 'Kumbh Sans';
+  font-family: var(--kumbhsans-font);
 }
 
 #roboto-slab {
-  font-family: 'Roboto Slab';
+  font-family: var(--robotoslab-font);
   font-weight: 400;
 }
 
 #space-mono {
-  font-family: 'Space Mono';
+  font-family: var(--spacemono-font);
 }
 
 /* Bottom Border Line under Heading "FONT" */
@@ -688,12 +704,12 @@ input {
 }
 
 
-/* ---------------- MEDIA QUERIES ----------------- */
-/* ---------------- MEDIA QUERIES ----------------- */
-/* ---------------- MEDIA QUERIES ----------------- */
-/* ---------------- MEDIA QUERIES ----------------- */
-/* ---------------- MEDIA QUERIES ----------------- */
-/* ---------------- MEDIA QUERIES ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
 
 
 /* iPads (portrait and landscape) ----------- */
@@ -708,7 +724,7 @@ input {
   #pomodoro-h2 {
     text-align: center;
     color: #D7E0FF;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     font-size: 32px;
     margin-top: 5rem;
   }
@@ -746,7 +762,7 @@ input {
     width: 120px; 
     border: none;
     border-radius: 50px;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     /* Font size for screen size over 768px */
     font-size: 14px;
     font-weight: bold;
@@ -769,7 +785,7 @@ input {
     width: 120px; 
     border: none;
     border-radius: 50px;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     /* Font size for screen size over 768px */
     font-size: 14px;
     font-weight: bold;
@@ -792,7 +808,7 @@ input {
     width: 120px; 
     border: none;
     border-radius: 50px;
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     /* Font size for screen size over 768px */
     font-size: 14px;
     font-weight: bold;
@@ -814,7 +830,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15%;
+  margin-top: 20%;
   z-index: 1;
 }
 
@@ -861,7 +877,7 @@ input {
   display: none;
 }
 
-/* ------- LOADER ------- */
+/* ------- LOADER TRACK ------- */
 
 .track {
   stroke: #161932;
@@ -875,7 +891,7 @@ input {
   stroke: #F87070;
   stroke-width: 10;
   stroke-dasharray: 1002;
-  stroke-dashoffset: 0;
+  stroke-dashoffset: 16.7;
   stroke-linecap: round;
   transform: translate(0.3%, 89%) rotate(-90deg);
 }
@@ -887,7 +903,7 @@ input {
   z-index: 10;
   position: absolute;
   color: #D7E0FF;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--kumbhsans-font);
   font-size: 100px;
 }
 
@@ -900,7 +916,7 @@ input {
   background: none;
   border: none;
   color: #D7E0FF;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--kumbhsans-font);
   font-size: 28px;
   font-weight: bold;
   font-size: 14px;
@@ -916,7 +932,7 @@ input {
   background: none;
   border: none;
   color: #D7E0FF;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--kumbhsans-font);
   font-size: 28px;
   font-weight: bold;
   font-size: 14px;
@@ -927,6 +943,25 @@ input {
 
 
 /* ------------------- SETTINGS WINDOW STYLING -------------------- */
+
+#settings-gear-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 6rem;
+  }
+  
+  
+  #gear-icon {
+    color: #D7E0FF;
+    opacity: 0.5;
+  }
+  
+  #gear-icon:hover {
+    color: #D7E0FF;
+    opacity: 1;
+  }
 
 .settings-window-wrap {
   /* display: none; */
@@ -958,7 +993,7 @@ input {
   transform: translate(-50%, -170%);
   position: absolute;
   background: #fff;
-  z-index: 2;
+  z-index: 4;
 }
 
 /* ---------------- Start Settings Window Header ------------  */
@@ -971,7 +1006,7 @@ input {
 }
 
 .settings-header h3 {
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: var(--kumbhsans-font);
   /* text-align: left; */
   font-size: 20px;
   font-weight: bold;
@@ -1105,7 +1140,6 @@ input {
 
 .apply-settings-btn button:hover {
   background: #fa8a8a;
-
 }
 
 /* End Apply Settings Button  */

@@ -14,7 +14,7 @@ closeSettingsWindow.addEventListener("click", function () {
   settingsWindow.classList.add("settings-window-hidden");
 });
 
-// ------ Version 2 - Open Settings Window by pressing Gears Button
+// ------ Version 2 - Open Settings Window by pressing Gear Button
 // document.getElementById("settings-gear-btn").addEventListener("click", () => {
 //   document
 //     .getElementById("settings-window-el")
@@ -42,3 +42,5 @@ closeSettingsWindow.addEventListener("click", function () {
 // CHOOSE A SHORT BREAK COUNTDOWN BY PRESSING THE - SHORT BREAK BUTTON - SHORT BREAK TIME SET IN SETTINGS
 
 // START A LONG BREAK COUNTDOWN BY PRESSING THE - LONG BREAK BUTTON - LONG BREAK TIME SET IN SETTINGS
+
+//
