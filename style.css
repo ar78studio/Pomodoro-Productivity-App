@@ -830,29 +830,25 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20%;
+  margin-top: 10%;
   z-index: 1;
 }
 
-
 .circle {
-  background: #1E213F;
+  background: #1e213f;
   width: 410px;
   height: 410px;
   border-radius: 50%;
   background: linear-gradient(145deg, #1b1e39, #202343);
-  box-shadow:  33px 33px 65px #141529,
-           -33px -33px 65px #292d55;
+  box-shadow: 33px 33px 65px #141529, -33px -33px 65px #292d55;
 }
-
 
 .inner-circle {
   width: 410px;
   height: 410px;
   border-radius: 50%;
-  background: #1E213F;
-  box-shadow: inset 31px 31px 58px #14162b,
-          inset -31px -31px 58px #282c53;
+  background: #1e213f;
+  box-shadow: inset 31px 31px 58px #14162b, inset -31px -31px 58px #282c53;
 }
 
 .clock-dial-container {
@@ -884,25 +880,25 @@ input {
   fill: none;
 }
 
-.progress {
+/* 16.71 is the 1 second interval */
+#circle-non-mobile {
   height: 355px;
   width: 355px;
   fill: none;
-  stroke: #F87070;
+  stroke: #f87070;
   stroke-width: 10;
-  stroke-dasharray: 1002;
-  stroke-dashoffset: 16.7;
+  stroke-dasharray: 1002.6;
+  stroke-dashoffset: 1002.6;
   stroke-linecap: round;
   transform: translate(0.3%, 89%) rotate(-90deg);
 }
 
-
 /* ------- CLOCK NUMBERS ------- */
 
-.clock-numbers {
+#clock-numbers-el {
   z-index: 10;
   position: absolute;
-  color: #D7E0FF;
+  color: #d7e0ff;
   font-family: var(--kumbhsans-font);
   font-size: 100px;
 }
@@ -910,35 +906,35 @@ input {
 /* ------- BUTTON PAUSE AND RESTART ------- */
 
 #btn-restart {
-  display: none;
+  display: block;
   position: absolute;
   margin-left: 25px;
   background: none;
   border: none;
-  color: #D7E0FF;
+  color: #d7e0ff;
   font-family: var(--kumbhsans-font);
-  font-size: 28px;
+  /* font-size: 28px; */
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 12px;
-  transform: translateY(95px);   
-  cursor: pointer; 
+  transform: translateY(95px);
+  cursor: pointer;
 }
 
 #btn-pause {
-  /* display: none; */
+  display: none;
   position: absolute;
   margin-left: 15px;
   background: none;
   border: none;
-  color: #D7E0FF;
+  color: #d7e0ff;
   font-family: var(--kumbhsans-font);
-  font-size: 28px;
+  /* font-size: 28px; */
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 12px;
-  transform: translateY(95px);   
-  cursor: pointer; 
+  transform: translateY(95px);
+  cursor: pointer;
 }
 
 

@@ -27,36 +27,29 @@
                 </div>
                 <div class="clock-container">
                     <div class="circle">
-                        <div class="inner-container">
-                            <div class="inner-circle">
-                                <div class="clock-dial-container">
-                                    <div class="clock-dial">
-                                            <svg width = "410px" height = "410px" >
-                                                <circle id="circle-mobile" r="120" cx="175"
-                                                cy="171" class="track"></circle>
-                                                <circle id="circle-mobile"  r="120" cx="175"
-                                                cy="171" class="progress"></circle>
-
-                                            
-                                                <circle id="circle-768px" r="160" cx="183"
-                                                cy="182" class="track"></circle>
-                                                <circle 
-                                                id="circle-768px" 
-                                                r="160" cx="183"
-                                                cy="182" class="progress"></circle>
-                                            </svg>
-                                        
-                                    </div>
-                                    
-                                    <h1 class="clock-numbers">17:59</h1>
-                                    <button id="btn-restart">RESTART</button>
-                                    <button id="btn-pause">PAUSE</button>
-    
-                                </div>
+                      <div class="inner-container">
+                        <div class="inner-circle">
+                          <div class="clock-dial-container">
+                            <div class="clock-dial">
+                              <svg width="410px" height="410px">
+                                <circle id="circle-mobile-track" r="120" cx="175" cy="171" class="track"></circle>
+                                <circle id="circle-mobile" r="120" cx="175" cy="171" class="progress"></circle>
+                  
+                                <circle id="circle-768px" r="160" cx="183" cy="182" class="track"></circle>
+                                <circle id="circle-non-mobile" r="160" cx="183" cy="182" class="progress"></circle>
+                              </svg>
+                  
                             </div>
+                  
+                            <h1 id="clock-numbers-el" value='25:00'>25:00</h1>
+                            <button id="btn-restart">RESTART</button>
+                            <button id="btn-pause">PAUSE</button>
+                  
+                          </div>
                         </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
 
                 <!-- Start Gear Button -->
                 <!-- Original code styling for <a></a> link button interefered with the Settings window staying open  -->
