@@ -20,9 +20,9 @@ closeSettingsWindow.addEventListener("click", function () {
 
 // PAUSE THE CLOCK BY PRESSING THE - PAUSE BUTTON - START BUTTON BECOMES VISIBLE AND PAUSE HIDDEN
 
-// CHOOSE A SHORT BREAK COUNTDOWN BY PRESSING THE - SHORT BREAK BUTTON - SHORT BREAK TIME SET IN SETTINGS
+// CHOOSE A SHORT BREAK COUNTDOWN BY PRESSING THE - SHORT BREAK BUTTON - SHORT BREAK TIME SET IN SETTINGS BY SAVING THE VALUE IN LOCAL STORAGE
 
-// START A LONG BREAK COUNTDOWN BY PRESSING THE - LONG BREAK BUTTON - LONG BREAK TIME SET IN SETTINGS
+// START A LONG BREAK COUNTDOWN BY PRESSING THE - LONG BREAK BUTTON - LONG BREAK TIME SET IN SETTINGS BY SAVING THE VALUE IN LOCAL STORAGE
 
 // Check if the interval has been setup, if not, then initialise with JS method setInterval, where we're passing a function to be run and a delay in milliseconds
 let initIntervalSec;
@@ -34,20 +34,20 @@ function initInterval() {
 }
 
 // Initialise stroke-dashoffset = oneSecInterval and initial stroke-dashoffset = oneHour
-let oneSecIntervalBar = 16.71;
+let oneSecBarMove = 16.71;
 let oneHour = 1002.6;
 
-// Init function that runs on click of the RESTART button. The function checks what the
+// Init function that runs on click of the RESTART button.
 
 function restartProgressBar() {
   if (oneHour <= 1002.6) {
-    oneHour = oneHour - oneSecIntervalBar;
+    oneHour = oneHour - oneSecBarMove;
     document.getElementById("circle-non-mobile").style["stroke-dashoffset"] =
       oneHour;
   }
   if (oneHour >= 1003.6) {
     // oneHour = 1002.6;
-    oneHour = oneHour - oneSecIntervalBar;
+    oneHour = oneHour - oneSecBarMove;
     document.getElementById("circle-non-mobile").style["stroke-dashoffset"] =
       oneHour;
   } else {
@@ -56,26 +56,80 @@ function restartProgressBar() {
 
 function pauseProgressBar() {
   clearInterval(initIntervalSec);
-  oneSecIntervalBar = null;
+  oneSecBarMove = null;
 }
 
 // Processing Current Time
 
-function currentTime() {
-  let date = new Date();
-  let m = date.getMinutes();
-  let s = date.getSeconds();
+// -------- Start Timer Code from Stack Overflow
+class Timer {
+  constructor() {
+    this.isRunning = false;
+    this.startTime = 0;
+    this.overallTime = 0;
+  }
 
-  m = m < 10 ? "0" + m : m;
-  s = s < 10 ? "0" + s : s;
+  _getTimeElapsedSinceLastStart() {
+    if (!this.startTime) {
+      return 0;
+    }
 
-  let time = m + ":" + s;
+    return Date.now() - this.startTime;
+  }
 
-  document.getElementById("clock-numbers-el").innerText = time;
-  let t = setTimeout(function () {
-    currentTime();
-  }, 1000);
+  start() {
+    if (this.isRunning) {
+      return console.error("Timer is already running");
+    }
+
+    this.isRunning = true;
+
+    this.startTime = Date.now();
+  }
+
+  stop() {
+    if (!this.isRunning) {
+      return console.error("Timer is already stopped");
+    }
+
+    this.isRunning = false;
+
+    this.overallTime = this.overallTime + this._getTimeElapsedSinceLastStart();
+  }
+
+  reset() {
+    this.overallTime = 0;
+
+    if (this.isRunning) {
+      this.startTime = Date.now();
+      return;
+    }
+
+    this.startTime = 0;
+  }
+
+  getTime() {
+    if (!this.startTime) {
+      return 0;
+    }
+
+    if (this.isRunning) {
+      return this.overallTime + this._getTimeElapsedSinceLastStart();
+    }
+
+    return this.overallTime;
+  }
 }
+
+// ---- Original Stack code
+// const timer = new Timer();
+// timer.start();
+// setInterval(() => {
+//   const timeInSeconds = Math.round(timer.getTime() / 1000);
+//   document.getElementById("clock-numbers-el").innerText = timeInSeconds;
+// }, 100);
+
+// -------- End Original Timer Code from Stack Overflow
 
 //--------- Restart and Pause time buttons
 
@@ -84,8 +138,21 @@ const restartBtn = document.getElementById("btn-restart");
 const pauseBtn = document.getElementById("btn-pause");
 
 // Adding click functionality
+// restartBtn.addEventListener("click", function () {
+//   initInterval(), currentTime();
+//   restartBtn.style.display = "none";
+//   pauseBtn.style.display = "block";
+// });
+
 restartBtn.addEventListener("click", function () {
   initInterval(), currentTime();
+  const timer = new Timer();
+  timer.start();
+  setInterval(() => {
+    const timeInSeconds = Math.round(timer.getTime() / 1000);
+    document.getElementById("clock-numbers-el").innerText = timeInSeconds;
+  }, 100);
+
   restartBtn.style.display = "none";
   pauseBtn.style.display = "block";
 });

@@ -1,0 +1,1228 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/*  --------- Main Styles ---------  */
+/*   -------- Main Styles --------  */
+/*    ------- Main Styles -------  */
+/*     ------ Main Styles ------  */
+
+:root {
+  --kumbhsans-font: 'Kumbh Sans', sans-serif;
+  --robotoslab-font: 'Roboto Slab', sans-serif;
+  --spacemono-font: 'Space Mono', sans-serif;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    background: #1E213F;
+    position: relative;
+}
+
+.main-wrap {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#pomodoro-h2 {
+    margin: 0 auto;
+    text-align: center;
+    color: #D7E0FF;
+    font-family: var(--kumbhsans-font);
+    font-size: 24px;
+    margin-top: 5%;
+}
+
+/* Mobile first */
+.break-window {
+    /* display: flex; */
+    margin: 0 auto;
+    margin-top: 9%;
+    max-height: 63px;
+    max-width: 327px;
+    background: #161932;
+    border-radius: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile first */
+.break-btn-container {
+    margin: 0 auto;
+    max-width: 327px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile first */
+/* Break Buttons */
+#pomodoro {
+    background: #161932;
+    color: #D7E0FF;
+    height: 48px;
+    width: 106px;
+    /* margin-left: 25px; */
+    border: none;
+    border-radius: 50px;
+    font-family: var(--kumbhsans-font);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+#pomodoro:hover, 
+#pomodoro:focus,
+#pomodoro:active {
+  background: #f87070;
+  color: #1E213F;
+  position: relative;
+  z-index: 1;
+
+}
+
+/* Mobile first */
+#short-break {
+    background: #161932;
+    color: #D7E0FF;
+    height: 48px;
+    width: 106px;
+    /* margin-left: 25px; */
+    border: none;
+    border-radius: 50px;
+    font-family: var(--kumbhsans-font);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    
+}
+
+#short-break:hover,
+#short-break:focus,
+#short-break:active {
+  background: #f87070;
+  color: #1E213F;
+  position: relative;
+  z-index: 1;
+
+}
+
+/* Mobile first */
+#long-break {
+    background: #161932;
+    color: #D7E0FF;
+    height: 48px;
+    width: 106px;
+    /* margin-left: 25px; */
+    border: none;
+    border-radius: 50px;
+    font-family: var(--kumbhsans-font);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+#long-break:hover,
+#long-break:focus,
+#long-break:active {
+  background: #f87070;
+  color: #1E213F;
+  position: relative;
+  z-index: 1;
+
+}
+
+/* CLOCK CONTAINER AND CLOCK INNER PARTS */
+
+.clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+    position: relative;
+    z-index: 0;
+}
+
+#circle-768px {
+  display: none;
+}
+
+
+.circle {
+
+    background: #1E213F;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1b1e39, #202343);
+    box-shadow:  33px 33px 45px #141529,
+             -33px -33px 45px #292d55;
+    z-index: -1;
+
+}
+
+
+.inner-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #1E213F;
+    box-shadow: inset 31px 31px 58px #14162b,
+            inset -31px -31px 58px #282c53;
+            z-index: 1;
+    
+}
+
+.clock-dial-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-dial {
+    margin-top: 18px;
+    width: 267.8px;
+    height: 267.8px;
+    border-radius: 50%;
+    background: #161932;
+
+}
+
+
+
+
+/* ------- LOADER ------- */
+
+.track {
+    /* stroke: #161932; */
+    fill: none;
+}
+
+.progress {
+    height: 248px;
+    width: 248px;
+    fill: none;
+    stroke: #F87070;
+    stroke-width: 8;
+    stroke-dasharray: 1002;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    transform: translate(-9%, 75%) rotate(-90deg);
+}
+
+
+/* ------- CLOCK NUMBERS ------- */
+
+.clock-numbers {
+    z-index: 10;
+    position: absolute;
+    color: #D7E0FF;
+    font-family: var(--kumbhsans-font);
+    font-size: 80px;
+}
+
+/* ------- BUTTON PAUSE AND RESTART ------- */
+
+#btn-restart {
+    display: none;
+    position: absolute;
+    margin-left: 25px;
+    background: none;
+    border: none;
+    color: #D7E0FF;
+    font-family: var(--kumbhsans-font);
+    font-size: 28px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 12px;
+    transform: translateY(63px);   
+    cursor: pointer; 
+}
+
+#btn-pause {
+    /* display: none; */
+    position: absolute;
+    margin-left: 15px;
+    background: none;
+    border: none;
+    color: #D7E0FF;
+    font-family: var(--kumbhsans-font);
+    font-size: 28px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 12px;
+    transform: translateY(63px);   
+    cursor: pointer; 
+}
+
+/* -------------- SETTINGS GEAR BUTTON ------------- */
+
+/* Original code styling for <a></a> link button interefered with the Settings window staying open replaced with <button></button> and styled accordingly */
+/* .settings-btn {
+  display: flex;
+  margin: 0 auto;
+}
+
+.settings-btn img {
+  cursor: pointer;
+}
+
+
+#settings-gear-btn {
+  height: 28px;
+  width: 28px;
+  margin: 0 auto;
+  margin-top: 5em;
+} */
+
+
+#settings-gear-btn {
+background: transparent;
+border: none;
+cursor: pointer;
+margin: 0 auto;
+margin-top: 6rem;
+}
+
+
+#gear-icon {
+  color: #D7E0FF;
+  opacity: 0.5;
+}
+
+#gear-icon:hover {
+  color: #D7E0FF;
+  opacity: 1;
+}
+
+
+/* -------------- SETTINGS WINDOW ------------- */
+
+.settings-window-hidden {
+  visibility: hidden;
+  /* display: none; */
+}
+
+.settings-window-visible {
+ /* display: block; */
+ visibility: visible;
+} 
+
+
+.settings-window-wrap {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+}
+
+.settings-window {
+  width: 327px;
+  height: 549px;
+  border-radius: 15px;
+  background: #fff;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -105%);
+  z-index: 1;
+}
+
+
+.settings-header {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgb(204, 204, 204, 0.7);
+  justify-content: space-between;
+}
+
+.settings-header h3 {
+  font-family: var(--kumbhsans-font);
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  color: #161932;
+  padding: 20px 0 30px 30px;
+}
+
+#close-window-btn {
+  background-image: url(images/X-close-window-btn.png);
+  background-color: transparent;
+  border: none;
+  height: 14px;
+  width: 14px;
+  margin: 30px 30px 30px 30px;
+  cursor: pointer;
+}
+
+.settings-time-settings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 30px;
+}
+
+
+
+.settings-time-label {
+  font-family: var(--kumbhsans-font);
+  font-size: 12px;
+  color: #1E213F;
+  opacity: 40%;
+}
+
+.time-h4 {
+  text-align: center;
+  font-family: var(--kumbhsans-font);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 4.23px;
+  padding: 12px 0 12px 0;
+}
+
+/* -------------- SETTINGS FONT SELECTION STYLING ---------------- */
+
+.settings-font-selection {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 60%;
+}
+
+#kumbh-sans {
+  font-family: var(--kumbhsans-font);
+}
+
+#roboto-slab {
+  font-family: var(--robotoslab-font);
+  font-weight: 400;
+}
+
+#space-mono {
+  font-family: var(--spacemono-font);
+}
+
+/* Bottom Border Line under Heading "FONT" */
+.devider-line {
+  border-bottom: 1px solid rgb(204, 204, 204, 0.5);
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 85%;
+}
+
+.font-selection {
+  display: grid;
+  place-items: center;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #EFF1FA;
+  font-family: inherit;
+  font-size: 15px;
+  color: #1E213F;
+  cursor: pointer;
+}
+
+/* .font-selection {
+  -webkit-transition: box-shadow 0.2s ease;
+  -moz-transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 50%;
+  color: #ffb600;
+  display: inline-block;
+  font-size: .889em;
+  margin: 0 1em 1em;
+  position: relative;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  line-height: 2em;
+}
+
+.font-selection:hover {
+  box-shadow: 0 0 0 7px #fff; 
+}
+
+.font-selection:before {
+  -webkit-transform: scale(0.925);
+  -moz-transform: scale(0.925);
+  -ms-transform: scale(0.925);
+  -o-transform: scale(0.925);
+  transform: scale(0.925);
+  box-shadow: 0 0 0 1px #fff;
+  opacity: .5; 
+}
+
+
+.font-selection:before {
+-webkit-transition: all 0.2s ease;
+-moz-transition: all 0.2s ease;
+transition: all 0.2s ease;
+border-radius: 50%;
+bottom: 0;
+box-shadow: 0 0 0 1px #fff;
+content: '';
+left: 0;
+position: absolute;
+right: 0;
+top: 0;
+} */
+
+
+
+.space-mono-hover:hover,
+.roboto-slab-hover:hover,
+.kumbh-sans-hover:hover {
+  display: grid;
+  place-items: center;
+  height: 50px;
+  width: 50px;
+  border: 1px solid rgb(239, 241, 250);
+  background: transparent;
+  border-radius: 50%;
+  position: relative;
+  
+}
+
+.space-mono-hover:hover::before {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  transform: scale(1.3);
+  box-shadow: 0 0 0 1rem #EFF1FA;
+  opacity: .5; 
+}
+
+.font-selection:focus {
+  background: #161932;
+  color: #fff;
+}
+
+.font-selection:active {
+  background: #161932;
+  color: #fff;
+}
+
+/* -------------- SETTINGS COLOR SELECTION BUTTONS STYLING ---------------- */
+
+.settings-color-selection {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.color-selection {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#orange-color-F87070 {
+  background: #F87070;
+  justify-content: center;
+  align-items: center;
+}
+
+#blue-color-70F3F8 {
+  background: #70F3F8;
+}
+
+#purple-color-D881F8 {
+  background: #D881F8;
+}
+
+#orange-color-F87070:hover {
+  transform: scale(1.1);
+}
+
+#orange-color-F87070:hover,
+#orange-color-F87070:focus {
+  background-image: url(images/check-mark.png);
+  background-position: center;
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+}
+
+#blue-color-70F3F8:hover {
+  transform: scale(1.1);
+}
+
+#blue-color-70F3F8:hover,
+#blue-color-70F3F8:focus {
+  background-image: url(images/check-mark.png);
+  background-position: center;
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+}
+
+#purple-color-D881F8:hover {
+  transform: scale(1.1);
+}
+
+#purple-color-D881F8:hover,
+#purple-color-D881F8:focus {
+  background-image: url(images/check-mark.png);
+  background-position: center;
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+}
+
+/* --------------- Start Apply Settings Button -------------- */
+
+.apply-settings-btn {
+  display: flex;
+  position: relative;
+  /* z-index: 2; */
+}
+
+.apply-settings-btn button {
+  width: 140px;
+  height: 53px;
+  background: #F87070;
+  color: #fff;
+  font-family: inherit;
+  border: none;
+  border-radius: 50px;
+  position: absolute;
+  left: 28%;
+  transform: translateY(50%);
+  cursor: pointer;
+}
+
+
+/* End Apply Settings Button  */
+
+
+/* ------------------ INPUT ARROWS INSIDE THE TIME BOXES ------------------ */
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+
+   opacity: 1;
+   cursor: pointer;
+
+}
+
+input {
+  width: 140px;
+  height: 40;
+  background: #EFF1FA;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 14px;
+  
+}
+
+
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+/* ---------------- MEDIA QUERIES for non mobile ----------------- */
+
+
+/* iPads (portrait and landscape) ----------- */
+
+@media (min-width : 768px) 
+ {
+
+ /* .main-wrap {
+  display: flex;
+ } */
+
+  #pomodoro-h2 {
+    text-align: center;
+    color: #D7E0FF;
+    font-family: var(--kumbhsans-font);
+    font-size: 32px;
+    margin-top: 5rem;
+  }
+
+
+  .break-window {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 3em;
+    height: 63px;
+    max-width: 373px;
+    background: #161932;
+    border-radius: 50px;
+    position: relative;
+    z-index: 0;
+}
+
+.break-btn-container {
+    margin: 0 auto;
+    max-width: 373px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    z-index: 0;
+    
+} 
+
+
+#pomodoro {
+    background: #161932;
+    color: #D7E0FF;
+    height: 48px;
+    /* Width for screen size over 768px */
+    width: 120px; 
+    border: none;
+    border-radius: 50px;
+    font-family: var(--kumbhsans-font);
+    /* Font size for screen size over 768px */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 8;
+}
+
+#pomodoro:hover, 
+#pomodoro:focus,
+#pomodoro:active {
+  background: #f87070;
+  color: #1E213F;
+}
+
+#short-break {
+    /* background: #F87070; */
+    color: #D7E0FF;
+    height: 48px;
+    /* Width for screen size over 768px */
+    width: 120px; 
+    border: none;
+    border-radius: 50px;
+    font-family: var(--kumbhsans-font);
+    /* Font size for screen size over 768px */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 8;
+}
+
+#short-break:hover,
+#short-break:focus,
+#short-break:active {
+  background: #f87070;
+  color: #1E213F;
+}
+
+#long-break {
+    /* background: #F87070; */
+    color: #D7E0FF;
+    height: 48px;
+    /* Width for screen size over 768px */
+    width: 120px; 
+    border: none;
+    border-radius: 50px;
+    font-family: var(--kumbhsans-font);
+    /* Font size for screen size over 768px */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 8;
+}
+
+#long-break:hover,
+#long-break:focus,
+#long-break:active {
+  background: #f87070;
+  color: #1E213F;
+}
+
+
+/* ----------------- CLOCK STYLING --------------- */
+
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  z-index: 1;
+}
+
+.circle {
+  background: #1e213f;
+  width: 410px;
+  height: 410px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1b1e39, #202343);
+  box-shadow: 33px 33px 65px #141529, -33px -33px 65px #292d55;
+}
+
+.inner-circle {
+  width: 410px;
+  height: 410px;
+  border-radius: 50%;
+  background: #1e213f;
+  box-shadow: inset 31px 31px 58px #14162b, inset -31px -31px 58px #282c53;
+}
+
+.clock-dial-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-dial {
+  margin-top: 23px;
+  width: 364px;
+  height: 364px;
+  border-radius: 50%;
+  background: #161932;
+}
+
+#circle-768px {
+  display: block;
+}
+
+#circle-mobile {
+  display: none;
+}
+
+/* ------- LOADER TRACK ------- */
+
+.track {
+  stroke: #161932;
+  fill: none;
+}
+
+/* 16.71 is the 1 second interval */
+#circle-non-mobile {
+  height: 355px;
+  width: 355px;
+  fill: none;
+  stroke: #f87070;
+  stroke-width: 10;
+  stroke-dasharray: 1002.6;
+  stroke-dashoffset: 1002.6;
+  stroke-linecap: round;
+  transform: translate(0.3%, 89%) rotate(-90deg);
+}
+
+/* ------- CLOCK NUMBERS ------- */
+
+#clock-numbers-el {
+  z-index: 10;
+  position: absolute;
+  color: #d7e0ff;
+  font-family: var(--kumbhsans-font);
+  font-size: 100px;
+}
+
+/* ------- BUTTON PAUSE AND RESTART ------- */
+
+#btn-restart {
+  display: block;
+  position: absolute;
+  margin-left: 25px;
+  background: none;
+  border: none;
+  color: #d7e0ff;
+  font-family: var(--kumbhsans-font);
+  /* font-size: 28px; */
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 12px;
+  transform: translateY(95px);
+  cursor: pointer;
+}
+
+#btn-pause {
+  display: none;
+  position: absolute;
+  margin-left: 15px;
+  background: none;
+  border: none;
+  color: #d7e0ff;
+  font-family: var(--kumbhsans-font);
+  /* font-size: 28px; */
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 12px;
+  transform: translateY(95px);
+  cursor: pointer;
+}
+
+
+/* ------------------- SETTINGS WINDOW STYLING -------------------- */
+
+#settings-gear-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 6rem;
+  }
+  
+  
+  #gear-icon {
+    color: #D7E0FF;
+    opacity: 0.5;
+  }
+  
+  #gear-icon:hover {
+    color: #D7E0FF;
+    opacity: 1;
+  }
+
+.settings-window-wrap {
+  /* display: none; */
+  /* visibility: hidden; */
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10rem;
+  z-index: 2;
+}
+
+.settings-window-hidden {
+   visibility: hidden;
+   /* display: none; */
+}
+
+.settings-window-visible {
+  /* display: block; */
+  visibility: visible;
+} 
+
+.settings-window {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 540px;
+  height: 464px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -170%);
+  position: absolute;
+  background: #fff;
+  z-index: 4;
+}
+
+/* ---------------- Start Settings Window Header ------------  */
+
+ .settings-header {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid rgb(204, 204, 204, 0.7);
+  justify-content: space-between;
+}
+
+.settings-header h3 {
+  font-family: var(--kumbhsans-font);
+  /* text-align: left; */
+  font-size: 20px;
+  font-weight: bold;
+  color: #161932;
+  padding: 20px 0px 30px 40px;
+}
+
+#close-window-btn {
+  margin-right: 40px;
+}
+
+/* ---------------- End Settings Window Header ------------  */
+
+
+.time-h4 {
+  text-align: start;
+  margin: 0 40px;
+  font-size: 13px;
+}
+
+.set-timings {
+  display: flex;
+  margin: 0 auto;
+}
+
+
+
+/* ---------------- Start Time Input Boxes ------------  */
+.settings-time-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: -10px;
+  justify-content: space-between;
+}
+
+
+.settings-time-label {
+  margin-bottom: 10px;
+}
+
+.input-boxes {
+  width: 140px;
+  height: 48px;
+}
+
+#long-break-nmbs {
+  margin-right: 40px;
+}
+
+/* ---------------- End Time Input Boxes ------------  */
+
+/* ---------------- Start Settings Font Selection ------------  */
+
+.font-selection-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0 5px 0;
+}
+
+.settings-font-selection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 30px;
+  width: 100%;
+}
+
+
+a {
+  color: #1E213F;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.inner {
+  width: 100%;
+  margin-right: 30px;
+}
+  
+li {
+  -webkit-transition: box-shadow 0.2s ease;
+  -moz-transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 50%;
+  background: #EFF1FA;
+  display: inline-block;
+  font-size: 1rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  /* Distance between buttons */
+  margin: 0.6em 0.6em 0.6em;
+  position: relative;
+  text-align: center;
+  /* Line height should be the same as width and height */
+  line-height: 2.5rem;
+
+}
+    
+a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom:0;
+  left: 0;
+}
+
+
+
+a:hover {
+/* inner small circle */
+/* box-shadow: 0 0 0 1px #fff;  */
+border-radius: 50%;
+background: #EFF1FA;
+}
+ 
+  
+a:hover::before {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  transform: scale(1.3);
+  /* box-shadow: 0 0 0 1rem #EFF1FA; */
+  /* opacity: .5;  */
+}
+
+
+a:hover::before {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  bottom: 0;
+  box-shadow: 0 0 0 0.1rem #EFF1FA;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+    
+
+
+/* ---------------- End Settings Font Selection ------------  */
+
+/* ---------------- Start Settings Color Selection ------------  */
+
+.color-selection-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0 5px 0;
+}
+
+.settings-color-selection {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 40px;
+  width: 100%;
+}
+
+.color-selection {
+  margin-left: 20px;
+}
+
+/* ---------------- End Settings Color Selection ------------  */
+
+
+/* --------------- Start Apply Settings Button ------------------ */
+
+.apply-settings-btn {
+  display: flex;
+  position: relative;
+}
+
+.apply-settings-btn button {
+  width: 140px;
+  height: 53px;
+  background: #F87070;
+  color: #fff;
+  font-family: inherit;
+  border: none;
+  border-radius: 50px;
+  position: absolute;
+  left: 38%;
+  transform: translateY(65%);
+  cursor: pointer;
+}
+
+.apply-settings-btn button:hover {
+  background: #fa8a8a;
+}
+
+/* End Apply Settings Button  */
+
+}
+/* --------------------- End Media Quereis ------------------------ */
+
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
