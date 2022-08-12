@@ -145,7 +145,7 @@ const pauseBtn = document.getElementById("btn-pause");
 // });
 
 restartBtn.addEventListener("click", function () {
-  initInterval(), currentTime();
+  initInterval();
   const timer = new Timer();
   timer.start();
   setInterval(() => {

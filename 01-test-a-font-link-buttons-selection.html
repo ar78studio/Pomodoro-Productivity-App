@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Roboto+Slab:wght@400;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Roboto+Slab:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"> 
         
         <link rel="stylesheet" href="01-test-a-font-link-buttons-selection.css">
         <script src="https://use.fontawesome.com/df5db4fd08.js"></script>
@@ -41,6 +41,7 @@
                   
                             </div>
                   
+                            <h3 id="hours-lapsed-el">1 hour</h3>
                             <h1 id="clock-numbers-el" value='25:00'>00:00</h1>
                             <button id="btn-restart">RESTART</button>
                             <button id="btn-pause">PAUSE</button>
@@ -80,6 +81,10 @@
                         </div>
                         
                         <h4 class="time-h4">TIME ( MINUTES )</h4>
+
+                        <!-- START SETTINGS WINDOW FORM -->
+
+                        <!-- END SETTINGS WINDOW FORM -->
                         
                         <!-- Start Input Boxes for Breaks -->
                         <div class="set-timings">
@@ -115,28 +120,37 @@
                         <!-- ---------------------------- -->
 
                         <!-- Start Font Selection -->
-                        <div class="font-selection-wrap">
+                            <div class="font-selection-wrap">
+                            
+                              <h4 class="time-h4">FONT</h4>
 
-                            <h4 class="time-h4">FONT</h4>
-                            
-                              <ul class="settings-font-selection">
-                                <li>
-                                  <a id="kumbh-sand" href="#">Aa</a>
-                                </li>
-                                <li>
-                                  <a id="roboto-slab" href="#">Aa</a>
-                                </li>
-                                <li>
-                                  <a id="space-mono" href="#">Aa</a>
-                                </li>
-                              </ul>
-                            
-                        </div>
+                                <ul class="settings-font-selection">
+                                  <label id="kumbh-sans-font" class="font-checkbox-bg" for="kumbh-sans">
+                                    <span>Aa</span> 
+                                    <input type="radio" checked id="kumbh-sans" name="font-group">
+                                    <div class="checkmark"><span>Aa</span> </div>
+                                  </label>
+                                
+                                  <label id="roboto-slab-font" class="font-checkbox-bg" for="roboto-slab">
+                                    <span>Aa</span> 
+                                    <input type="radio" id="roboto-slab" name="font-group">
+                                    <div class="checkmark"><span>Aa</span> </div>
+                                  </label>
+                                
+                                  <label id="space-mono-font" class="font-checkbox-bg" for="space-mono">
+                                    <span>Aa</span> 
+                                    <input type="radio"  id="space-mono" name="font-group">
+                                    <div class="checkmark"><span>Aa</span> </div>
+                                  </label>
+                                </ul>
+                              
+                            </div>
                         <!-- End Font Selection -->
 
 
                         <div class="devider-line"></div>
 
+                        <!-- START Color Selection -->
                         <div class="color-selection-wrap">
                             <h4 class="time-h4">COLOR</h4>
 
@@ -147,6 +161,7 @@
                             
                         </div>
                         </div>
+                        <!-- END Color Selection -->
 
                         <div class="apply-settings-btn">
                             <button id="apply-settings">Apply</button>

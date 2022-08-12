@@ -474,9 +474,9 @@ margin-top: 6rem;
   width: 60%;
 }
 
-#kumbh-sans {
+/* #kumbh-sans {
   font-family: var(--kumbhsans-font);
-}
+} */
 
 #roboto-slab {
   font-family: var(--robotoslab-font);
@@ -1093,7 +1093,27 @@ a {
   margin-right: 30px;
 }
   
-li {
+/* li {
+  -webkit-transition: box-shadow 0.2s ease;
+  -moz-transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 50%;
+  background: #EFF1FA;
+  display: inline-block;
+  font-size: 1rem;
+  height: 2.5rem;
+  width: 2.5rem; */
+  /* Distance between buttons */
+  /* margin: 0.6em 0.6em 0.6em;
+  position: relative;
+  text-align: center; */
+  /* Line height should be the same as width and height */
+  /* line-height: 2.5rem;
+} */
+
+input[type="checkbox"] {
   -webkit-transition: box-shadow 0.2s ease;
   -moz-transition: box-shadow 0.2s ease;
   transition: box-shadow 0.2s ease;
@@ -1122,6 +1142,21 @@ a {
   left: 0;
 }
 
+#kumbh-sans {
+  font-family: var(--kumbhsans-font);
+}
+
+#kumbh-sans:hover {
+  border-radius: 50%;
+  background: #EFF1FA;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+  border-radius: 50%;
+  background: #EFF1FA;
+  cursor: pointer;
+}
 
 
 a:hover {
