@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Roboto+Slab:wght@400;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Roboto+Slab:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"> 
         
         <link rel="stylesheet" href="style.css">
         <script src="https://use.fontawesome.com/df5db4fd08.js"></script>
@@ -41,7 +41,8 @@
                   
                             </div>
                   
-                            <h1 id="clock-numbers-el" value='25:00'>25:00</h1>
+                            <h3 id="hours-lapsed-el">1 hour</h3>
+                            <h1 id="clock-numbers-el" value='25:00'>00:00</h1>
                             <button id="btn-restart">RESTART</button>
                             <button id="btn-pause">PAUSE</button>
                   
@@ -80,6 +81,10 @@
                         </div>
                         
                         <h4 class="time-h4">TIME ( MINUTES )</h4>
+
+                        <!-- START SETTINGS WINDOW FORM -->
+
+                        <!-- END SETTINGS WINDOW FORM -->
                         
                         <!-- Start Input Boxes for Breaks -->
                         <div class="set-timings">
@@ -109,44 +114,70 @@
                         <!-- End Input Boxes for Breaks -->
                         
                         <div class="devider-line"></div>
-                        
+                        <!-- ---------------------------- -->
+                        <!-- ---------------------------- -->
+                        <!-- ---------------------------- -->
+                        <!-- ---------------------------- -->
+
                         <!-- Start Font Selection -->
-                        <div class="font-selection-wrap">
+                            <div class="font-selection-wrap">
+                            
+                              <h4 class="time-h4">FONT</h4>
 
-                        <h4 class="time-h4">FONT</h4>
-                        
-                        <div class="settings-font-selection">
-                            <div class="kumbh-sans-hover">
-                                <button class="font-selection" id="kumbh-sans">Aa</button>
+                                <ul class="settings-font-selection">
+                                  <label id="kumbh-sans-font" class="font-checkbox-bg" for="kumbh-sans">
+                                    <span>Aa</span> 
+                                    <input type="radio" checked id="kumbh-sans" name="font-group">
+                                    <div class="checkmark"><span>Aa</span> </div>
+                                  </label>
+                                
+                                  <label id="roboto-slab-font" class="font-checkbox-bg" for="roboto-slab">
+                                    <span>Aa</span> 
+                                    <input type="radio" id="roboto-slab" name="font-group">
+                                    <div class="checkmark"><span>Aa</span> </div>
+                                  </label>
+                                
+                                  <label id="space-mono-font" class="font-checkbox-bg" for="space-mono">
+                                    <span>Aa</span> 
+                                    <input type="radio"  id="space-mono" name="font-group">
+                                    <div class="checkmark"><span>Aa</span> </div>
+                                  </label>
+                                </ul>
+                              
                             </div>
-                            
-                            <div class="roboto-slab-hover">
-                                <button class="font-selection" id="roboto-slab">Aa</button>
-                            </div>
-                            
-                            <div class="space-mono-hover">
-                                <button class="font-selection" id="space-mono">Aa</button>
-                            </div>
-                            
-                            
-                        </div>
-
-                        </div>
                         <!-- End Font Selection -->
 
 
                         <div class="devider-line"></div>
 
-                        <div class="color-selection-wrap">
-                            <h4 class="time-h4">COLOR</h4>
+                        <!-- START Color Selection -->
+<div class="color-selection-wrap">
 
-                        <div class="settings-color-selection">
-                            <button class="color-selection" id="orange-color-F87070"></button>
-                            <button class="color-selection" id="blue-color-70F3F8"></button>
-                            <button class="color-selection" id="purple-color-D881F8"></button>
-                            
-                        </div>
-                        </div>
+  <h4 class="time-h4">FONT</h4>
+  
+    <ul class="settings-color-selection">
+
+      <label class="color-checkbox-bg orange-bg-F87070" for="orange-checkbox">
+        <input type="radio" checked id="orange-checkbox" name="color-group">
+        <div class="checkmark-orange"></div>
+      </label>
+
+      <label class="color-checkbox-bg blue-bg-70F3F8" for="blue-checkbox">
+          
+        <input type="radio" id="blue-checkbox" name="color-group">
+        <div class="checkmark-blue"></div>
+      </label>
+
+      <label class="color-checkbox-bg purple-bg-D881F8" for="purple-checkbox">
+          
+        <input type="radio"  id="purple-checkbox" name="color-group">
+        <div class="checkmark-purple"></div>
+      </label>
+
+    </ul>
+  
+</div>
+<!-- END Color Selection -->
 
                         <div class="apply-settings-btn">
                             <button id="apply-settings">Apply</button>

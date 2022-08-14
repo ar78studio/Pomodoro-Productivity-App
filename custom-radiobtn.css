@@ -217,12 +217,6 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-  
-  /* .checkmark:after {
-    content: "";
-    position: absolute;
-    opacity: 0;
-  } */
 
   /* START: Expanding Circle for Input Label Background */
   .color-checkbox-bg:hover {
