@@ -35,7 +35,7 @@
                                 <circle id="circle-mobile-track" r="120" cx="175" cy="171" class="track"></circle>
                                 <circle id="circle-mobile" r="120" cx="175" cy="171" class="progress"></circle>
                   
-                                <circle id="circle-768px" r="160" cx="183" cy="182" class="track"></circle>
+                                <circle id="circle-non-mobile-track" r="160" cx="183" cy="182" class="track"></circle>
                                 <circle id="circle-non-mobile" r="160" cx="183" cy="182" class="progress"></circle>
                               </svg>
                   
@@ -53,19 +53,8 @@
                   </div>
 
                 <!-- Start Gear Button -->
-                <!-- Original code styling for <a></a> link button interefered with the Settings window staying open  -->
-
-                <!-- <div class="settings-btn">
-                    <a id="settings-gear-btn" href="">
-                        <img src="images/settings.png" alt="">
-                    </a>
-                </div> -->
-                
-                <!-- <button id="settings-gear-btn" class="settings-btn" href="">
-                    <img id="gear-img" src="images/settings.png" alt="" srcset="">
-                </button> -->
             
-                <button id="settings-gear-btn" class="settings-btn" href="">
+                <button id="settings-gear-btn" href="">
                     <i id="gear-icon" class="fa fa-gear fa-2x" aria-hidden="true"></i>
                 </button>
                 
@@ -81,10 +70,6 @@
                         </div>
                         
                         <h4 class="time-h4">TIME ( MINUTES )</h4>
-
-                        <!-- START SETTINGS WINDOW FORM -->
-
-                        <!-- END SETTINGS WINDOW FORM -->
                         
                         <!-- Start Input Boxes for Breaks -->
                         <div class="set-timings">
@@ -124,7 +109,7 @@
                             
                               <h4 class="time-h4">FONT</h4>
 
-                                <ul class="settings-font-selection">
+                                <div class="settings-font-selection">
                                   <label id="kumbh-sans-font" class="font-checkbox-bg" for="kumbh-sans">
                                     <span>Aa</span> 
                                     <input type="radio" checked id="kumbh-sans" name="font-group">
@@ -142,7 +127,7 @@
                                     <input type="radio"  id="space-mono" name="font-group">
                                     <div class="checkmark"><span>Aa</span> </div>
                                   </label>
-                                </ul>
+                            </div>
                               
                             </div>
                         <!-- End Font Selection -->
@@ -153,9 +138,9 @@
                         <!-- START Color Selection -->
 <div class="color-selection-wrap">
 
-  <h4 class="time-h4">FONT</h4>
+  <h4 class="time-h4">COLOR</h4>
   
-    <ul class="settings-color-selection">
+    <div class="settings-color-selection">
 
       <label class="color-checkbox-bg orange-bg-F87070" for="orange-checkbox">
         <input type="radio" checked id="orange-checkbox" name="color-group">
@@ -174,7 +159,7 @@
         <div class="checkmark-purple"></div>
       </label>
 
-    </ul>
+    </div>
   
 </div>
 <!-- END Color Selection -->
