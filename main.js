@@ -14,7 +14,7 @@ closeSettingsWindow.addEventListener("click", function () {
   settingsWindow.classList.add("settings-window-hidden");
 });
 
-// ---- INITIAL SCREEN HAS START BUTTON VISIBLE WITH CLOCKS SHOWING 00:00. POMODORO HEADER BUTTON IS ACTIVE. HEADER BUTTONS STAY ALWAYS ACTIVE (IGNORING OFF-BUTTON CLICKS) UNTIL THE OTHER HEADER BUTTON IS PRESSED.
+// ---- INITIAL SCREEN HAS START BUTTON VISIBLE WITH CLOCKS SHOWING 00:00. POMODORO HEADER BUTTON IS ACTIVE. HEADER BUTTONS STAY ALWAYS ACTIVE (use radio buttons) UNTIL THE OTHER HEADER BUTTON IS PRESSED.
 
 // INITIATE THE CLOCKS BY PRESSINGS THE START BUTTON -> PAUSE BUTTON IS VISIBLE AND PAUSE HIDDEN, ONCE THE CLOCK IS STARTED
 
@@ -134,7 +134,7 @@ class Timer {
 //--------- Restart and Pause time buttons
 
 // Declaring the button variables in the DOM
-const restartBtn = document.getElementById("btn-restart");
+const restartBtn = document.getElementById("btn-start");
 const pauseBtn = document.getElementById("btn-pause");
 
 // Adding click functionality
