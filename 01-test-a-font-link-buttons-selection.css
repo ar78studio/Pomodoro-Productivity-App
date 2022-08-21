@@ -110,39 +110,51 @@ body {
     margin-top: 5%;
 }
 
-/* Mobile first */
-.break-window {
-    /* display: flex; */
+  /* --------- START Break Buttons --------- */
+
+  .break-window {
+    display: flex;
     margin: 0 auto;
-    margin-top: 9%;
+    margin-top: 3em;
     min-height: 63px;
     min-width: 327px;
     background: #161932;
     border-radius: 50px;
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
 
-/* Mobile first */
 .break-btn-container {
-    margin: 0 auto;
-    min-width: 327px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: relative;
-    padding-top: 7px;
-    z-index: 1;
+  margin: 0 auto;
+  min-width: 327px;
+  padding-bottom: 0.3em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+} 
+    
+
+.break-buttons {
+  display: grid;
+  place-items: center;
+  height: 48px;
+  width: 106px;
+  color: #D7E0FF;
+  opacity: 0.5;
 }
 
-/* Mobile first */
-/* Break Buttons */
-#pomodoro {
+.break-buttons:hover {
+  opacity: 1;
+}
+
+  /* Checkmark Pomodoro */
+  .pomodoro-btn-label {
     background: #161932;
     color: #D7E0FF;
-    height: 46px;
+    height: 48px;
     width: 106px;
-    /* margin-left: 25px; */
     margin-left: 5px;
     border: none;
     border-radius: 50px;
@@ -152,25 +164,46 @@ body {
     cursor: pointer;
     position: relative;
     z-index: 1;
-}
+  }
 
-#pomodoro:hover, 
-#pomodoro:focus,
-#pomodoro:active {
-  background: #f87070;
-  color: #1E213F;
+  .pomodoro-btn-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .pomodoro-btn-label:hover {
+    color: #D7E0FF;
+    opacity: 1;
+  }
+  
+.pomodoro-radiocheck {
   position: relative;
+  top: -2.95rem;
+  height: 48px;
+  width: 106px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50px;
+  color: transparent;
   z-index: 1;
-
 }
 
-/* Mobile first */
-#short-break {
+  .pomodoro-btn-label input:checked ~ .pomodoro-radiocheck {
+    background: #F87070;
+    color: #EFF1FA;
+  }
+
+    /* Checkmark short break */
+    .shortbreak-btn-label {
     background: #161932;
     color: #D7E0FF;
     height: 48px;
     width: 106px;
-    /* margin-left: 25px; */
+    margin-left: 5px;
     border: none;
     border-radius: 50px;
     font-family: var(--kumbhsans-font);
@@ -179,45 +212,93 @@ body {
     cursor: pointer;
     position: relative;
     z-index: 1;
+  }
+
+  .shortbreak-btn-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .shortbreak-btn-label:hover {
+    color: #D7E0FF;
+    opacity: 1;
+  }
+  
+.shortbreak-radiocheck {
+  position: relative;
+  top: -2.95rem;
+  height: 48px;
+  width: 106px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50px;
+  color: transparent;
+  z-index: 2;
+}
+
+  .shortbreak-btn-label input:checked ~ .shortbreak-radiocheck {
+    background: #F87070;
+    color: #EFF1FA;
+  }
+
+
+      /* Checkmark long break */
+      .longbreak-btn-label {
+        background: #161932;
+        color: #D7E0FF;
+        height: 48px;
+        width: 106px;
+        /* margin-left: 25px; */
+        margin-right: 0.3rem;
+        border: none;
+        border-radius: 50px;
+        font-family: var(--kumbhsans-font);
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+      }
     
-}
+      .longbreak-btn-label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+    
+      .longbreak-btn-label:hover {
+        color: #D7E0FF;
+        opacity: 1;
+      }
+      
+    .longbreak-radiocheck {
+      position: relative;
+      top: -2.95rem;
+      height: 48px;
+      width: 106px;
+      display: grid;
+      place-items: center;
+      border: none;
+      border-radius: 50px;
+      color: transparent;
+      z-index: 2;
+    }
+    
+      .longbreak-btn-label input:checked ~ .longbreak-radiocheck {
+        background: #F87070;
+        color: #EFF1FA;
+        
+      }
+  
 
-#short-break:hover,
-#short-break:focus,
-#short-break:active {
-  background: #f87070;
-  color: #1E213F;
-  position: relative;
-  z-index: 1;
+  /* --------- END Break Buttons --------- */
 
-}
-
-/* Mobile first */
-#long-break {
-    background: #161932;
-    color: #D7E0FF;
-    height: 48px;
-    width: 106px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 50px;
-    font-family: var(--kumbhsans-font);
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-}
-
-#long-break:hover,
-#long-break:focus,
-#long-break:active {
-  background: #f87070;
-  color: #1E213F;
-  position: relative;
-  z-index: 1;
-
-}
 
 /* CLOCK CONTAINER AND CLOCK INNER PARTS */
 
@@ -788,100 +869,207 @@ input {
   }
 
 
-  .break-window {
-    display: flex;
-    margin: 0 auto;
-    margin-top: 3em;
-    min-height: 63px;
-    min-width: 373px;
-    background: #161932;
-    border-radius: 50px;
-    position: relative;
-    z-index: 0;
+   /* --------- START Break Buttons --------- */
+
+.break-window {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 3em;
+  max-height: 63px;
+  max-width: 373px;
+  background: #161932;
+  border-radius: 50px;
+  position: relative;
+  z-index: 2;
 }
 
 .break-btn-container {
-    margin: 0 auto;
-    min-width: 373px;
-    padding-bottom: 0.3em;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: relative;
-    z-index: 0;
-    
+  margin: 0 auto;
+  max-height: 63px;
+  max-width: 373px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  z-index: 2;
 } 
+    
 
+/* .break-buttons {
+  display: grid;
+  place-items: center;
+  height: 48px;
+  width: 120px;
+  color: rgb(215, 224, 255);
+} */
 
-#pomodoro {
+.break-buttons:hover {
+  /* color: rgba(215, 224, 255, 1); */
+  /* color: rgb(215, 224, 255); */
+}
+
+  /* Checkmark Pomodoro */
+.pomodoro-btn-label {
+  background: #161932;
+  color: rgba(215, 224, 255, 0.7);
+  height: 48px;
+  min-width: 120px;
+  margin-left: 5px;
+  border: 1px solid red;
+  border-radius: 50px;
+  font-family: var(--kumbhsans-font);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  }
+
+.pomodoro-btn-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.pomodoro-btn-label:hover {
+  background: #161932;
+  color: rgba(215, 224, 255);
+  /* height: 48px;
+  width: 120px;
+  margin-left: 5px; */
+  /* border: none; */
+  /* border: 1px solid rgb(1, 255, 115);
+  border-radius: 50px;
+  font-family: var(--kumbhsans-font);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1; */
+}
+  
+.pomodoro-radiocheck {
+  position: relative;
+  top: -2.9rem;
+  height: 48px;
+  width: 120px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50px;
+  color: transparent;
+  z-index: 2;
+}
+
+  .pomodoro-btn-label input:checked ~ .pomodoro-radiocheck {
+    background: #F87070;
+    color: #EFF1FA;
+    
+  }
+
+    /* Checkmark short break */
+    .shortbreak-btn-label {
     background: #161932;
     color: #D7E0FF;
     height: 48px;
-    /* Width for screen size over 768px */
-    width: 120px; 
-    padding-left: 0.7em;
+    width: 120px;
+    margin-left: 5px;
     border: none;
     border-radius: 50px;
     font-family: var(--kumbhsans-font);
-    /* Font size for screen size over 768px */
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 8;
-}
+    position: relative;
+    z-index: 1;
+  }
 
-#pomodoro:hover, 
-#pomodoro:focus,
-#pomodoro:active {
-  background: #f87070;
-  color: #1E213F;
-}
+  .shortbreak-btn-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
 
-#short-break {
-    /* background: #F87070; */
+  .shortbreak-btn-label:hover {
     color: #D7E0FF;
-    height: 48px;
-    /* Width for screen size over 768px */
-    width: 120px; 
-    border: none;
-    border-radius: 50px;
-    font-family: var(--kumbhsans-font);
-    /* Font size for screen size over 768px */
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 8;
+    opacity: 1;
+  }
+  
+.shortbreak-radiocheck {
+  position: relative;
+  top: -2.95rem;
+  height: 48px;
+  width: 120px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50px;
+  color: transparent;
+  z-index: 2;
 }
 
-#short-break:hover,
-#short-break:focus,
-#short-break:active {
-  background: #f87070;
-  color: #1E213F;
-}
+  .shortbreak-btn-label input:checked ~ .shortbreak-radiocheck {
+    background: #F87070;
+    color: #EFF1FA;
+  }
 
-#long-break {
-    /* background: #F87070; */
-    color: #D7E0FF;
-    height: 48px;
-    /* Width for screen size over 768px */
-    width: 120px; 
-    border: none;
-    border-radius: 50px;
-    font-family: var(--kumbhsans-font);
-    /* Font size for screen size over 768px */
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 8;
-}
 
-#long-break:hover,
-#long-break:focus,
-#long-break:active {
-  background: #f87070;
-  color: #1E213F;
-}
+      /* Checkmark long break */
+      .longbreak-btn-label {
+        background: #161932;
+        color: #D7E0FF;
+        height: 48px;
+        width: 120px;
+        /* margin-left: 25px; */
+        margin-right: 0.3rem;
+        border: none;
+        border-radius: 50px;
+        font-family: var(--kumbhsans-font);
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+      }
+    
+      .longbreak-btn-label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+    
+      .longbreak-btn-label:hover {
+        color: #D7E0FF;
+        opacity: 1;
+      }
+      
+    .longbreak-radiocheck {
+      position: relative;
+      top: -2.95rem;
+      height: 48px;
+      width: 120px;
+      display: grid;
+      place-items: center;
+      border: none;
+      border-radius: 50px;
+      color: transparent;
+      z-index: 2;
+    }
+    
+      .longbreak-btn-label input:checked ~ .longbreak-radiocheck {
+        background: #F87070;
+        color: #D7E0FF;
+        
+      }
+  
+
+  /* --------- END Break Buttons --------- */
 
 
 /* ----------------- CLOCK STYLING --------------- */
@@ -949,6 +1137,7 @@ input {
   stroke: #f87070;
   stroke-width: 10;
   stroke-dasharray: 1002.6;
+  /* stroke-dashoffset: 1002.6; */
   stroke-dashoffset: 1002.6;
   stroke-linecap: round;
   transform: translate(0.3%, 89%) rotate(-90deg);
@@ -964,6 +1153,7 @@ input {
   color: #d7e0ff;
   font-family: var(--kumbhsans-font);
   font-size: 100px;
+  
 }
 
 
@@ -1009,18 +1199,25 @@ input {
 #btn-pause {
   display: none;
   position: absolute;
-  /* margin-left: 15px; */
+  /* margin-left: 25px; */
   margin: 0 auto;
+  text-align: center;
+  padding-left: 15px;
   background: none;
   border: none;
   color: #d7e0ff;
   font-family: var(--kumbhsans-font);
   /* font-size: 28px; */
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 12px;
   transform: translateY(95px);
   cursor: pointer;
+}
+
+#btn-pause:hover {
+  color: #f87070;
+
 }
 
 

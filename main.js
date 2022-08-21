@@ -35,21 +35,25 @@ function initInterval() {
 
 // Initialise stroke-dashoffset = oneSecInterval and initial stroke-dashoffset = oneHour
 let oneSecBarMove = 16.71;
-let oneHour = 1002.6;
+let oneMinute = 1002.6;
 
 // Init function that runs on click of the RESTART button.
 
 function restartProgressBar() {
-  if (oneHour <= 1002.6) {
-    oneHour = oneHour - oneSecBarMove;
+  if (oneMinute <= 1002.6) {
+    oneMinute = oneMinute - oneSecBarMove;
     document.getElementById("circle-non-mobile").style["stroke-dashoffset"] =
-      oneHour;
+      oneMinute;
+    document.getElementById("circle-mobile").style["stroke-dashoffset"] =
+      oneMinute;
   }
-  if (oneHour >= 1003.6) {
+  if (oneMinute >= 1003.6) {
     // oneHour = 1002.6;
-    oneHour = oneHour - oneSecBarMove;
+    oneMinute = oneMinute - oneSecBarMove;
     document.getElementById("circle-non-mobile").style["stroke-dashoffset"] =
-      oneHour;
+      oneMinute;
+    document.getElementById("circle-mobile").style["stroke-dashoffset"] =
+      oneMinute;
   } else {
   }
 }
@@ -58,78 +62,6 @@ function pauseProgressBar() {
   clearInterval(initIntervalSec);
   oneSecBarMove = null;
 }
-
-// Processing Current Time
-
-// -------- Start Timer Code from Stack Overflow
-class Timer {
-  constructor() {
-    this.isRunning = false;
-    this.startTime = 0;
-    this.overallTime = 0;
-  }
-
-  _getTimeElapsedSinceLastStart() {
-    if (!this.startTime) {
-      return 0;
-    }
-
-    return Date.now() - this.startTime;
-  }
-
-  start() {
-    if (this.isRunning) {
-      return console.error("Timer is already running");
-    }
-
-    this.isRunning = true;
-
-    this.startTime = Date.now();
-  }
-
-  stop() {
-    if (!this.isRunning) {
-      return console.error("Timer is already stopped");
-    }
-
-    this.isRunning = false;
-
-    this.overallTime = this.overallTime + this._getTimeElapsedSinceLastStart();
-  }
-
-  reset() {
-    this.overallTime = 0;
-
-    if (this.isRunning) {
-      this.startTime = Date.now();
-      return;
-    }
-
-    this.startTime = 0;
-  }
-
-  getTime() {
-    if (!this.startTime) {
-      return 0;
-    }
-
-    if (this.isRunning) {
-      return this.overallTime + this._getTimeElapsedSinceLastStart();
-    }
-
-    return this.overallTime;
-  }
-}
-
-// ---- Original Stack code
-// const timer = new Timer();
-// timer.start();
-// setInterval(() => {
-//   const timeInSeconds = Math.round(timer.getTime() / 1000);
-//   document.getElementById("clock-numbers-el").innerText = timeInSeconds;
-// }, 100);
-
-// -------- End Original Timer Code from Stack Overflow
 
 //--------- Restart and Pause time buttons
 

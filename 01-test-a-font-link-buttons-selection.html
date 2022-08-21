@@ -12,18 +12,36 @@
         
         <link rel="stylesheet" href="01-test-a-font-link-buttons-selection.css">
         <script src="https://use.fontawesome.com/df5db4fd08.js"></script>
-        <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>    -->
+        <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>  -->
 
     </head>
     <body>
         <div class="main-wrap">
                 <h2 id="pomodoro-h2">pomodoro</h2>
                 <div class="break-window">
-                    <div class="break-btn-container">
-                        <button id="pomodoro">pomodoro</button>
-                        <button id="short-break">short break</button>
-                        <button id="long-break">long break</button>
-                    </div>
+
+                  <div class="break-btn-container">
+                                    
+                    <label class="pomodoro-btn-label break-buttons" for="pomodoro-time-btn">
+                      <span class="break-buttons">pomodoro</span>
+                    <input type="radio" name="break-btns-group" id="pomodoro-time-btn">
+                    <div class="pomodoro-radiocheck"><span>pomodoro</span> </div>
+                    </label>
+                  
+                    <label class="shortbreak-btn-label break-buttons" for="shortbreak-time-btn">
+                      <span class="break-buttons">short break</span> 
+                    <input type="radio" name="break-btns-group" id="shortbreak-time-btn">
+                    <div class="shortbreak-radiocheck"><span>short break</span> </div>
+                    </label>
+                  
+                    <label class="longbreak-btn-label break-buttons" for="longbreak-time-btn">
+                      <span class="break-buttons">long break</span>
+                    <input type="radio" name="break-btns-group" id="longbreak-time-btn">
+                    <div class="longbreak-radiocheck"><span>long break</span> </div>
+                    </label>
+                
+                </div>
+                
                 </div>
                 <div class="clock-container">
                     <div class="circle">
@@ -42,7 +60,7 @@
                             </div>
                   
                             <h3 id="hours-lapsed-el">1 hour</h3>
-                            <h1 id="clock-numbers-el" value='25:00'>00:00</h1>
+                            <h1 id="clock-numbers-el" value=''>00:00</h1>
                             <button id="btn-start">START</button>
                             <button id="btn-pause">PAUSE</button>
                   
@@ -75,34 +93,31 @@
                         <div class="set-timings">
                             
                             <div class="settings-time-settings">
-                                <label class="settings-time-label" for="pomodoro-nmbs">pomodoro</label>
-                                <input id="pomodoro-nmbs" 
+                                <label class="settings-time-label" for="pomodoro-time-el">pomodoro</label>
+                                <input id="pomodoro-time-el" 
                                  class="input-boxes"
-                                 type="number" name="pomodoro-nmbs" >
+                                 type="number" name="pomodoro-time-el" >
                             </div>
     
                             <div class="settings-time-settings">
-                                <label class="settings-time-label" for="short-break-nmbs">short break</label>
-                                <input id="short-break-nmbs" 
+                                <label class="settings-time-label" for="short-break-el">short break</label>
+                                <input id="short-break-el" 
                                  class="input-boxes"
-                                 type="number" name="short-break-nmbs" >
+                                 type="number" name="short-break-el" >
                             </div>
                                 
                             <div class="settings-time-settings">
-                                <label class="settings-time-label" for="long-break-nmbs">long break</label>
-                                <input id="long-break-nmbs" 
+                                <label class="settings-time-label" for="long-break-el">long break</label>
+                                <input id="long-break-el" 
                                  class="input-boxes"
-                                 type="number" name="long-break-nmbs" >
+                                 type="number" name="long-break-el" >
                             </div>
 
                         </div>
                         <!-- End Input Boxes for Breaks -->
                         
                         <div class="devider-line"></div>
-                        <!-- ---------------------------- -->
-                        <!-- ---------------------------- -->
-                        <!-- ---------------------------- -->
-                        <!-- ---------------------------- -->
+                    
 
                         <!-- Start Font Selection -->
                             <div class="font-selection-wrap">
@@ -177,7 +192,8 @@
         
 
         
-        <script src="main.js" async defer></script>
+<!-- <script src="main.js" async defer></script> -->
+<script src="timer.js" async defer></script>
         
     </body>
 </html>

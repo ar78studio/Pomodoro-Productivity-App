@@ -7,6 +7,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Roboto+Slab:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="custom-radiobtn.css">
     </head>
     <body>
@@ -66,6 +67,40 @@
   
 </div>
 <!-- END Color Selection -->
-        <script src="" async defer></script>
+
+
+<div class="break-window">
+
+  <div class="break-btn-container">
+                    
+    <label class="pomodoro-btn-label" for="pomodoro-time-btn">
+      <span class="break-buttons">pomodoro</span>
+    <input type="radio" name="break-btns-group" id="pomodoro-time-btn">
+    <div class="pomodoro-radiocheck"><span>pomodoro</span> </div>
+    </label>
+  
+    <label class="shortbreak-btn-label" for="shortbreak-time-btn">
+      <span class="break-buttons">short break</span> 
+    <input type="radio" name="break-btns-group" id="shortbreak-time-btn">
+    <div class="shortbreak-radiocheck"><span>short break</span> </div>
+    </label>
+  
+    <label class="longbreak-btn-label" for="longbreak-time-btn">
+      <span class="break-buttons">long break</span>
+    <input type="radio" name="break-btns-group" id="longbreak-time-btn">
+    <div class="longbreak-radiocheck"><span>long break</span> </div>
+    </label>
+
+</div>
+
+</div>
+
+<h3>PAUSE RESUME JS</h3>
+<div id="container"></div>
+<button id="start-timer-btn">START</button>
+
+
+
+        <script src="pause-resume.js" async defer></script>
     </body>
 </html>
