@@ -822,13 +822,13 @@ body {
 
 /* ------------------ INPUT ARROWS INSIDE THE TIME BOXES ------------------ */
 
-input[type=number]::-webkit-inner-spin-button, 
+/* input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button {  
 
    opacity: 1;
    cursor: pointer;
 
-}
+} */
 
 input {
   width: 140px;
@@ -1223,25 +1223,6 @@ input {
 
 /* ------------------- SETTINGS WINDOW STYLING -------------------- */
 
-/* #settings-gear-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  margin: 0 auto;
-  margin-top: 6rem;
-  }
-  
-  
-  #gear-icon {
-    color: #D7E0FF;
-    opacity: 0.5;
-  }
-  
-  #gear-icon:hover {
-    color: #D7E0FF;
-    opacity: 1;
-  } */
-
 .settings-window-wrap {
   /* display: none; */
   /* visibility: hidden; */
@@ -1311,14 +1292,19 @@ input {
   font-size: 13px;
 }
 
-.set-timings {
-  display: flex;
-  margin: 0 auto;
-}
+
 
 
 
 /* ---------------- Start Time Input Boxes ------------  */
+
+.set-timings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
+}
+
 .settings-time-settings {
   display: flex;
   flex-direction: column;
@@ -1337,7 +1323,7 @@ input {
   height: 48px;
 }
 
-#long-break-nmbs {
+#long-break-el {
   margin-right: 40px;
 }
 
