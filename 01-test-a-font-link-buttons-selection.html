@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Pomodoro App</title>
+        <title>Pomodoro Timer App</title>
         <meta name="ar78.studio Artem Repin" content="Pomodoro Productivity Clock and Timer, July 2022">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +59,7 @@
                   
                             </div>
                   
-                            <h3 id="hours-lapsed-el">1 hour</h3>
+                            <!-- <h3 id="hours-lapsed-el">1 hour</h3> -->
                             <h1 id="clock-numbers-el" value=''>00:00</h1>
                             <button id="btn-start">START</button>
                             <button id="btn-pause">PAUSE</button>
@@ -97,7 +97,7 @@
                             <div class="settings-time-settings">
                                 <label class="settings-time-label" for="pomodoro-time-el">pomodoro</label>
                                 <input id="pomodoro-time-el" 
-                                 value="25"
+                                 value="50"
                                  min="1"
                                  class="input-boxes"
                                  type="number" name="pomodoro-time-el" >
@@ -200,12 +200,10 @@
   <!-- END Settings Window -->
                 
 </div>
-            
-        
-
         
 <!-- <script src="main.js" async defer></script> -->
-<script src="timer.js" async defer></script>
+<script src="timerDOM.js" async defer></script>
+<script src="timerLogic.js" async defer></script>
         
     </body>
 </html>

@@ -86,7 +86,7 @@ select {
 }
 
 body {
-    font-family: 'Kumbh Sans', sans-serif;
+    font-family: var(--kumbhsans-font);
     background: #1E213F;
     position: relative;
 }
@@ -893,20 +893,7 @@ input {
   position: relative;
   z-index: 2;
 } 
-    
 
-/* .break-buttons {
-  display: grid;
-  place-items: center;
-  height: 48px;
-  width: 120px;
-  color: rgb(215, 224, 255);
-} */
-
-.break-buttons:hover {
-  /* color: rgba(215, 224, 255, 1); */
-  /* color: rgb(215, 224, 255); */
-}
 
   /* Checkmark Pomodoro */
 .pomodoro-btn-label {
