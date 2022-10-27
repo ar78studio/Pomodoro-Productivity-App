@@ -377,7 +377,7 @@ body {
     stroke: #F87070;
     stroke-width: 8;
     stroke-dasharray: 1002;
-    stroke-dashoffset: 1000;
+    stroke-dashoffset: 1002;
     stroke-linecap: round;
     transform: translate(-9%, 75%) rotate(-90deg);
 }
@@ -856,9 +856,9 @@ input {
 @media (min-width : 768px) 
  {
 
- /* .main-wrap {
-  display: flex;
- } */
+ .main-wrap {
+  margin-top: 2rem;
+ }
 
   #pomodoro-h2 {
     text-align: center;
@@ -902,7 +902,7 @@ input {
   height: 48px;
   min-width: 120px;
   margin-left: 5px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   border-radius: 50px;
   font-family: var(--kumbhsans-font);
   font-size: 12px;
@@ -1125,7 +1125,7 @@ input {
   stroke-width: 10;
   stroke-dasharray: 1002.6;
   /* stroke-dashoffset: 1002.6; */
-  stroke-dashoffset: 1002.6;
+  stroke-dashoffset: 250;
   stroke-linecap: round;
   transform: translate(0.3%, 89%) rotate(-90deg);
 }

@@ -1,3 +1,32 @@
+// ------- Open Settings Window by pressing Gear Button
+const openSettingsWindow = document.getElementById('settings-gear-btn');
+const closeSettingsWindow = document.getElementById('close-window-btn');
+const settingsWindow = document.getElementById('settings-window-el');
+
+// ------- Apply Settings Button
+const applySettingsBtn = document.getElementById('apply-settings');
+
+// ------- Pomodoro Button on the Main Page
+const pomodoroBtn = document.getElementById('pomodoro-time-btn');
+// ------- Short Break Button on the Main Page
+const shortBreakBtn = document.getElementById('shortbreak-time-btn');
+// ------- Long Break Button on the Main Page
+const longBreakBtn = document.getElementById('longbreak-time-btn');
+
+openSettingsWindow.addEventListener('click', function () {
+	settingsWindow.classList.remove('settings-window-hidden');
+	settingsWindow.classList.add('settings-window-visible');
+});
+
+closeSettingsWindow.addEventListener('click', function () {
+	settingsWindow.classList.remove('settings-window-visible');
+	settingsWindow.classList.add('settings-window-hidden');
+});
+
+// Setting up Time DOM Output
+
+const displayNumbers = document.querySelector('#clock-numbers-el');
+
 // ------- Initialize user input for Pomodoro, Short Break and Long Break
 
 const pomodoroTime = document.querySelector('#pomodoro-time-el');
@@ -105,7 +134,8 @@ function runPomodoro() {
 
 	function updateTimer() {
 		let seconds = Math.floor(time / 60);
-		let minutes = Math.floor(time / 60 / 60);
+		let minutes = Math.floor(time / 60 / 24);
+		console.log(minutes);
 
 		// seconds = seconds < 10 ? '0' + seconds : seconds;
 		// displayNumbers.innerHTML = `${minutes}:${seconds}`;
@@ -121,6 +151,7 @@ function runShortBreak() {
 	function updateTimer() {
 		let seconds = Math.floor(shortBreak / 60);
 		let minutes = Math.floor(shortBreak / 60 / 60);
+		console.log(minutes);
 
 		// seconds = seconds < 10 ? '0' + seconds : seconds;
 		// displayNumbers.innerHTML = `${minutes}:${seconds}`;
@@ -136,7 +167,7 @@ function runLongBreak() {
 	function updateTimer() {
 		let seconds = Math.floor(longBreak / 60);
 		let minutes = Math.floor(longBreak / 60 / 60);
-
+		console.log(minutes);
 		// seconds = seconds < 10 ? '0' + seconds : seconds;
 		// displayNumbers.innerHTML = `${minutes}:${seconds}`;
 		seconds = seconds < 10 ? '0' + seconds : seconds;
@@ -159,24 +190,22 @@ function pauseTimer() {
 }
 
 // function runClock() {
-//   let minutes, seconds;
-//   globalTimer.timer = setInterval(function () {
-//     const difference = new Date().getTime() - globalTimer.start;
-//     minutes = parseInt(difference / 1000 / 60);
-//     minutes = minutes < 10 ? "0" + minutes : minutes;
+// 	let minutes, seconds;
+// 	globalTimer.timer = setInterval(function () {
+// 		const difference = new Date().getTime() - globalTimer.start;
+// 		minutes = parseInt(difference / 1000 / 60);
+// 		minutes = minutes < 10 ? '0' + minutes : minutes;
 
-//     seconds = parseInt(difference / 1000);
-//     seconds = seconds < 10 ? "0" + seconds : seconds;
+// 		seconds = parseInt(difference / 1000);
+// 		seconds = seconds < 10 ? '0' + seconds : seconds;
 
-//     if (seconds > 60) seconds %= 60;
+// 		if (seconds > 60) seconds %= 60;
 
-//     // Initialize Milliseconds
-//     // millis = difference;
-//     // if (millis > 1000) millis %= 1000;
+// 		// Initialize Milliseconds
+// 		millis = difference;
+// 		if (millis > 1000) millis %= 1000;
 
-//     // document.getElementById(
-//     //   "clock-numbers-el"
-//     // ).innerText = `${minutes}:${seconds}`;
+// 		document.getElementById('clock-numbers-el').innerText = `${minutes}:${seconds}`;
 
 //     // ---------- End Run Clock ----------------
 
@@ -196,24 +225,20 @@ function pauseTimer() {
 //     //     transform: translate(0.3%, 89%) rotate(-90deg);
 //     //   }
 
-//     let oneSecBarMove = 16.71;
-//     let initialBarState = 1002.6;
+// 		let oneSecBarMove = 16.71;
+// 		let initialBarState = 1002.6;
 
-//     // Increment Progress-Bar / Time-Bar
-//     // We need to subtract oneSecBarMove from oneMinute, keep the result and keep subtracting oneSecBarMove from the result until the result is equal to zero. The result is pushed to .style["stroke-dashoffset"] every time it is subtracted.
+// 		// Increment Progress-Bar / Time-Bar
+// 		// We need to subtract oneSecBarMove from oneMinute, keep the result and keep subtracting oneSecBarMove from the result until the result is equal to zero. The result is pushed to .style["stroke-dashoffset"] every time it is subtracted.
 
-//     if ((initialBarState = 1002.6)) {
-//       initialBarState = initialBarState - oneSecBarMove;
-//       document.getElementById("circle-non-mobile").style["stroke-dashoffset"] =
-//         initialBarState;
-//       document.getElementById("circle-mobile").style["stroke-dashoffset"] =
-//         initialBarState;
-//     } else {
-//       initialBarState = initialBarState + oneSecBarMove;
-//       document.getElementById("circle-non-mobile").style["stroke-dashoffset"] =
-//         initialBarState;
-//       document.getElementById("circle-mobile").style["stroke-dashoffset"] =
-//         initialBarState;
-//     }
-//   }, 10);
+// 		if ((initialBarState = 1002.6)) {
+// 			initialBarState = initialBarState - oneSecBarMove;
+// 			document.getElementById('circle-non-mobile').style['stroke-dashoffset'] = initialBarState;
+// 			document.getElementById('circle-mobile').style['stroke-dashoffset'] = initialBarState;
+// 		} else {
+// 			initialBarState = initialBarState + oneSecBarMove;
+// 			document.getElementById('circle-non-mobile').style['stroke-dashoffset'] = initialBarState;
+// 			document.getElementById('circle-mobile').style['stroke-dashoffset'] = initialBarState;
+// 		}
+// 	}, 10);
 // }
