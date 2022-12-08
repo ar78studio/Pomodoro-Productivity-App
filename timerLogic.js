@@ -133,7 +133,7 @@ This is a "longBreak" variable - ${longBreak}
 
 // Code that starts timer
 function runPomodoro() {
-  globalTimer.timer = setInterval(updateTimer);
+  globalTimer.timer = setInterval(updateTimer, 1000);
 
   function updateTimer() {
     let minutes = Math.floor(loadTime / 60);
