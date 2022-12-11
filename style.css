@@ -379,7 +379,7 @@ body {
     stroke: #F87070;
     stroke-width: 8;
     stroke-dasharray: 1002;
-    stroke-dashoffset: 1002;
+    stroke-dashoffset: 605;
     stroke-linecap: round;
     transform: translate(-9%, 75%) rotate(-90deg);
 }
@@ -1201,7 +1201,7 @@ input {
   font-weight: bold;
   font-size: 16px;
   letter-spacing: 12px;
-  transform: translateY(95px);
+  transform: translateY(75px);
   cursor: pointer;
 }
 
@@ -1224,13 +1224,29 @@ input {
   font-weight: bold;
   font-size: 16px;
   letter-spacing: 12px;
-  transform: translateY(95px);
+  transform: translateY(75px);
   cursor: pointer;
 }
 
 #btn-pause:hover {
   color: #f87070;
 
+}
+
+#btn-clear {
+  /* display: none; */
+  position: absolute;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  color: #D7E0FF;
+  opacity: 0.5;
+  font-family: var(--kumbhsans-font);
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 5px;
+  transform: translateY(103px);   
+  cursor: pointer; 
 }
 
 
