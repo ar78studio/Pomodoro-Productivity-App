@@ -379,7 +379,7 @@ body {
     stroke: #F87070;
     stroke-width: 8;
     stroke-dasharray: 1002;
-    stroke-dashoffset: 605;
+    stroke-dashoffset: 999;
     stroke-linecap: round;
     transform: translate(-9%, 75%) rotate(-90deg);
 }
@@ -422,7 +422,7 @@ body {
     font-weight: bold;
     font-size: 14px;
     letter-spacing: 12px;
-    transform: translateY(63px);   
+    transform: translateY(55px);   
     cursor: pointer; 
 }
 
@@ -442,7 +442,7 @@ body {
     font-weight: bold;
     font-size: 14px;
     letter-spacing: 12px;
-    transform: translateY(63px);   
+    transform: translateY(55px);   
     cursor: pointer; 
 }
 
@@ -464,7 +464,7 @@ body {
   font-weight: bold;
   font-size: 10px;
   letter-spacing: 5px;
-  transform: translateY(89px);   
+  transform: translateY(80px);   
   cursor: pointer; 
 }
 
@@ -1150,7 +1150,7 @@ input {
   stroke: #f87070;
   stroke-width: 10;
   stroke-dasharray: 1002.6;
-  stroke-dashoffset: 335;
+  stroke-dashoffset: 999;
   /* stroke-dashoffset: 250; */
   stroke-linecap: round;
   transform: translate(0.3%, 89%) rotate(-90deg);

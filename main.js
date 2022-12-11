@@ -173,38 +173,42 @@ function clearTimer() {
   displayNumbers.innerHTML = `00:00`;
 }
 
-//     // ---------- End Run Clock ----------------
+// Initialise the time-bar if statement: if ((initialBarState = 1002.6))
+// in relationship to the following CSS bellow:
 
-//     // Initialise the time-bar if statement: if ((initialBarState = 1002.6))
-//     // in relationship to the following CSS bellow:
+// 16.71 is the 1 second clock bar increase in visibility interval
+//     #circle-non-mobile {
+//     height: 355px;
+//     width: 355px;
+//     fill: none;
+//     stroke: #f87070;
+//     stroke-width: 10;
+//     stroke-dasharray: 1002.6;
+//     stroke-dashoffset: 1002.6;
+//     stroke-linecap: round;
+//     transform: translate(0.3%, 89%) rotate(-90deg);
+//   }
 
-//     // 16.71 is the 1 second clock bar increase in visibility interval
-//     //     #circle-non-mobile {
-//     //     height: 355px;
-//     //     width: 355px;
-//     //     fill: none;
-//     //     stroke: #f87070;
-//     //     stroke-width: 10;
-//     //     stroke-dasharray: 1002.6;
-//     //     stroke-dashoffset: 1002.6;
-//     //     stroke-linecap: round;
-//     //     transform: translate(0.3%, 89%) rotate(-90deg);
-//     //   }
+// let oneSecBarMove = 16.71;
+let oneSecBarMove = 16.65;
+// let initialBarState = 1002.6;
+let initialBarState = 999;
 
-// 		let oneSecBarMove = 16.71;
-// 		let initialBarState = 1002.6;
+globalTimer.timer = setInterval(updateProgressBar, 1000);
 
-// 		// Increment Progress-Bar / Time-Bar
-// 		// We need to subtract oneSecBarMove from oneMinute, keep the result and keep subtracting oneSecBarMove from the result until the result is equal to zero. The result is pushed to .style["stroke-dashoffset"] every time it is subtracted.
+// Increment Progress-Bar / Time-Bar
 
-// 		if ((initialBarState = 1002.6)) {
-// 			initialBarState = initialBarState - oneSecBarMove;
-// 			document.getElementById('circle-non-mobile').style['stroke-dashoffset'] = initialBarState;
-// 			document.getElementById('circle-mobile').style['stroke-dashoffset'] = initialBarState;
-// 		} else {
-// 			initialBarState = initialBarState + oneSecBarMove;
-// 			document.getElementById('circle-non-mobile').style['stroke-dashoffset'] = initialBarState;
-// 			document.getElementById('circle-mobile').style['stroke-dashoffset'] = initialBarState;
-// 		}
-// 	}, 10);
-// }
+function updateProgressBar() {
+  progressBarResult = initialBarState - oneSecBarMove;
+  document.getElementById("circle-non-mobile").style["stroke-dashoffset"] =
+    progressBarResult;
+  // document.getElementById("circle-mobile").style["stroke-dashoffset"] =
+  //   initialBarState;
+  // } else {
+  //   initialBarState = initialBarState + oneSecBarMove;
+  //   document.getElementById("circle-non-mobile").style["stroke-dashoffset"] =
+  //     initialBarState;
+  //   document.getElementById("circle-mobile").style["stroke-dashoffset"] =
+  //     initialBarState;
+  // }
+}
