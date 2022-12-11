@@ -64,6 +64,7 @@ pomodoroBtn.addEventListener("click", function () {
   // clearInterval(time);
   clearInterval(loadTime);
   console.log(timeValueObject.pomodoroValue);
+  globalTimer.start = loadTime * 60;
 });
 
 // Pass Short Break Timer value into the Clock in the DOM
@@ -72,6 +73,7 @@ shortBreakBtn.addEventListener("click", function () {
   loadTime = timeValueObject.shortBreakValue;
   clearInterval(loadTime);
   console.log(timeValueObject.shortBreakValue);
+  globalTimer.start = loadTime * 60;
 });
 
 // Pass Short Break Timer value into the Clock in the DOM
@@ -80,6 +82,7 @@ longBreakBtn.addEventListener("click", function () {
   loadTime = timeValueObject.longBreakValue;
   clearInterval(loadTime);
   console.log(timeValueObject.longBreakValue);
+  globalTimer.start = loadTime * 60;
 });
 
 // --------------------------- Timer ------------------------
@@ -87,23 +90,15 @@ longBreakBtn.addEventListener("click", function () {
 // --------------------------- Timer ------------------------
 
 // Initializing random time Start and End to then calculate the difference using new Date() which counts the time since January 1, 1970 (ECMA epoch start)
-const start = new Date("January 1, 2022");
-const end = new Date("January 2, 2022");
-
-// Calculating difference
-// const difference = end.getTime() - start.getTime();
-const difference = end.getTime() - start.getTime();
-// console.log(`Difference is ` + difference);
-
-const seconds = parseInt(difference / 1000);
-const minutes = parseInt(difference / 1000 / 60);
 
 // Declaring the button variables in the DOM
 const startBtn = document.getElementById("btn-start");
 const pauseBtn = document.getElementById("btn-pause");
+const clearBtn = document.getElementById("btn-clear");
 
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", pauseTimer);
+clearBtn.addEventListener("click", clearTimer);
 
 // Declare Global Time Object to hold Starting Timer value
 const globalTimer = {
@@ -114,99 +109,69 @@ const globalTimer = {
 
 // START Time Calculation
 function startTimer() {
-  runPomodoro();
+  if (globalTimer.start <= 0) return;
+
   startBtn.style.display = "none";
   pauseBtn.style.display = "block";
-  const date = new Date();
-  globalTimer.start = date.getTime();
+
+  globalTimer.timer = setInterval(updateTimer, 1000);
 }
 
 // const startTiming = timeValueObject;
 let pomodoro = timeValueObject.pomodoroValue;
 let shortBreak = timeValueObject.shortBreakValue;
 let longBreak = timeValueObject.longBreakValue;
-console.log(`
-This is a "pomodoro" variable - ${pomodoro}
-This is a "shortBreak" variable - ${shortBreak}
-This is a "longBreak" variable - ${longBreak}
-`);
+
+function updateTimer() {
+  globalTimer.start--;
+  const minutes = Math.trunc(globalTimer.start / 60).toString();
+  const seconds = Math.trunc(globalTimer.start % 60).toString();
+  displayNumbers.innerHTML = `${minutes.padStart(2, "0")}:${seconds.padStart(
+    2,
+    "0"
+  )}`;
+
+  if (globalTimer.start <= 0) {
+    clearInterval(globalTimer.timer); // stop the timer when we hit 0
+    globalTimer.timer = null;
+    globalTimer.start = null;
+    // displayNumbers.innerHTML = `<h6>All Done!</h6>`;
+    // pauseBtn.style.display = "none";
+    // startBtn.style.display = "block";
+  }
+}
 
 // Code that starts timer
 function runPomodoro() {
-  globalTimer.timer = setInterval(updateTimer, 1000);
-
-  function updateTimer() {
-    let minutes = Math.floor(loadTime / 60);
-    let seconds = loadTime - minutes * 60;
-    console.log(minutes, seconds);
-
-    // minutes = minutes < 10 ? "0" + minutes : minutes;
-    minutes = minutes < 10 ? "" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    loadTime--;
-    displayNumbers.innerHTML = `${minutes}:${seconds}`;
-  }
+  // before STARTING the actual timer, set the start time...
+  // If start time is not null then it's a restart from pause
+  if (!globalTimer.start) globalTimer.start = loadTime * 60; // in seconds
 }
 
 function runShortBreak() {
-  globalTimer.timer = setInterval(updateTimer);
-
-  function updateTimer() {
-    let minutes = Math.floor(loadTime / 60);
-    let seconds = loadTime - minutes * 60;
-    console.log(minutes);
-
-    minutes = minutes < 10 ? "" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    displayNumbers.innerHTML = `${minutes}:${seconds}`;
-    time--;
-  }
+  if (!globalTimer.start) globalTimer.start = loadTime * 60;
 }
 
 function runLongBreak() {
-  globalTimer.timer = setInterval(updateTimer, 1000);
-
-  function updateTimer() {
-    let minutes = Math.floor(loadTime / 60);
-    let seconds = loadTime - minutes * 60;
-    console.log(minutes);
-    minutes = minutes < 10 ? "" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    displayNumbers.innerHTML = `${minutes}:${seconds}`;
-    time--;
-  }
+  if (!globalTimer.start) globalTimer.start = loadTime * 60;
 }
 
 // PAUSE Time
 function pauseTimer() {
   startBtn.style.display = "block";
   pauseBtn.style.display = "none";
-  const date = new Date();
-  globalTimer.end = date.getTime();
-  // totalTime is the result of time passed between pressing the start and then pause button
-  (globalTimer.end - globalTimer.start) / 1000;
-  if (globalTimer.timer) {
-    clearInterval(globalTimer.timer);
-  }
+  if (globalTimer.timer) clearInterval(globalTimer.timer);
 }
 
-// function runClock() {
-// 	let minutes, seconds;
-// 	globalTimer.timer = setInterval(function () {
-// 		const difference = new Date().getTime() - globalTimer.start;
-// 		minutes = parseInt(difference / 1000 / 60);
-// 		minutes = minutes < 10 ? '0' + minutes : minutes;
-
-// 		seconds = parseInt(difference / 1000);
-// 		seconds = seconds < 10 ? '0' + seconds : seconds;
-
-// 		if (seconds > 60) seconds %= 60;
-
-// 		// Initialize Milliseconds
-// 		millis = difference;
-// 		if (millis > 1000) millis %= 1000;
-
-// 		document.getElementById('clock-numbers-el').innerText = `${minutes}:${seconds}`;
+// CLEAR Timer
+function clearTimer() {
+  clearInterval(globalTimer.timer);
+  globalTimer.timer = null;
+  globalTimer.start = null;
+  startBtn.style.display = "block";
+  pauseBtn.style.display = "none";
+  displayNumbers.innerHTML = `00:00`;
+}
 
 //     // ---------- End Run Clock ----------------
 

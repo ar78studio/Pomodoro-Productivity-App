@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
 /* Box sizing rules */
 *,
 *::before,
@@ -442,6 +444,33 @@ body {
     letter-spacing: 12px;
     transform: translateY(63px);   
     cursor: pointer; 
+}
+
+#btn-pause:hover {
+    color: #f87070;
+}
+
+#btn-clear {
+  /* display: none; */
+  position: absolute;
+  /* margin-left: 25px; */
+  margin: 0 auto;
+  padding-left: 1.2em;
+  background: none;
+  border: none;
+  color: #D7E0FF;
+  opacity: 0.5;
+  font-family: var(--kumbhsans-font);
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 5px;
+  transform: translateY(89px);   
+  cursor: pointer; 
+}
+
+#btn-clear:hover {
+  color: #F87070;
+  opacity: 1;
 }
 
 /* -------------- SETTINGS GEAR BUTTON ------------- */
