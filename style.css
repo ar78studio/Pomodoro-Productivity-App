@@ -1150,7 +1150,7 @@ input {
   stroke: #f87070;
   stroke-width: 10;
   stroke-dasharray: 1002.6;
-  stroke-dashoffset: 999;
+  /* stroke-dashoffset: 999; */
   /* stroke-dashoffset: 250; */
   stroke-linecap: round;
   transform: translate(0.3%, 89%) rotate(-90deg);
