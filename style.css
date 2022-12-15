@@ -1169,6 +1169,10 @@ input {
   
 }
 
+.all-done{
+  font-size: 4rem;
+}
+
 
 #hours-lapsed-el {
   z-index: 10;

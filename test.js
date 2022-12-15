@@ -61,6 +61,9 @@ const globalTimer = {
 // declare the global time holder to load Pomodoro, Short Break and Long Break into when the appropriate button is pressed in the main mode selector
 let loadTime;
 
+// Initial Progress Bar Position
+let barResult = 999;
+
 // Pass Pomodoro Timer value into the Clock in the DOM
 pomodoroBtn.addEventListener("click", function () {
   displayNumbers.innerHTML = `${timeValueObject.pomodoroValue}:00`;
@@ -104,9 +107,6 @@ startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", pauseTimer);
 clearBtn.addEventListener("click", clearTimer);
 
-// Initial Progress Bar Position
-let barResult = 999;
-
 // START Time Calculation
 function startTimer() {
   if (globalTimer.start <= 0) return;
@@ -115,7 +115,6 @@ function startTimer() {
   pauseBtn.style.display = "block";
 
   globalTimer.timer = setInterval(updateTimer, 1000);
-  globalTimer.progressBar = setInterval(updateProgressBar, 1000);
 }
 
 // Update Timer
@@ -131,7 +130,6 @@ function updateTimer() {
   globalTimer.progressBar--;
   // Subtract 16.65 from the current value of the progress bar
   barResult = barResult - 16.65;
-
   // If the progress bar has reached 0, reset it to the starting value
   if (barResult <= 0) {
     barResult = 999;
@@ -146,7 +144,18 @@ function updateTimer() {
     clearInterval(globalTimer.progressBar); // stop the progress bar when we hit 0
     globalTimer.timer = null;
     globalTimer.start = null;
-    displayNumbers.innerHTML = `All Done!`;
+    displayNumbers.innerHTML = `<p class="all-done">All Done!</p>`;
+    document.getElementById("circle-non-mobile").style["stroke-dashoffset"] = 0;
+    setTimeout(() => {
+      document.getElementById("circle-non-mobile").style[
+        "stroke-dashoffset"
+      ] = 999;
+      //   displayNumbers.innerHTML = `00:00`;
+    }, 6000);
+
+    let ding = new Audio("/ding.mp3");
+    ding.play();
+
     pauseBtn.style.display = "none";
     startBtn.style.display = "block";
   }
@@ -163,12 +172,18 @@ function pauseTimer() {
 // CLEAR Timer
 function clearTimer() {
   clearInterval(globalTimer.timer);
+  clearInterval(globalTimer.progressBar);
+  clearInterval(globalTimer.start);
   globalTimer.timer = null;
   globalTimer.start = null;
+  globalTimer.progressBar = 999;
+  document.getElementById("circle-non-mobile").style["stroke-dashoffset"] = 999;
   startBtn.style.display = "block";
   pauseBtn.style.display = "none";
   displayNumbers.innerHTML = `00:00`;
 }
+
+console.log(clearTimer());
 
 // Initialise the time-bar if statement: if ((initialBarState = 1002.6))
 // in relationship to the following CSS bellow:
