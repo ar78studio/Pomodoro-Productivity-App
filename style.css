@@ -406,6 +406,10 @@ body {
 
 }
 
+.all-done{
+  font-size: 2.7rem;
+}
+
 /* ------- BUTTON PAUSE AND RESTART ------- */
 
 #btn-start {
