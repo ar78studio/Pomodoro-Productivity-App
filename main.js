@@ -1,7 +1,9 @@
 // ------- Open Settings Window by pressing Gear Button
-const openSettingsWindow = document.getElementById("settings-gear-btn");
+// const settingsGearBtn = document.getElementById("settings-gear-btn");
+const settingsGearBtn = document.getElementById("gear-icon");
 const closeSettingsWindow = document.getElementById("close-window-btn");
 const settingsWindow = document.getElementById("settings-window-el");
+const clearTimerBtn = document.getElementById("btn-clear");
 
 // ------- Apply Settings Button
 const applySettingsBtn = document.getElementById("apply-settings");
@@ -13,12 +15,23 @@ const shortBreakBtn = document.getElementById("shortbreak-time-btn");
 // ------- Long Break Button on the Main Page
 const longBreakBtn = document.getElementById("longbreak-time-btn");
 
-openSettingsWindow.addEventListener("click", function () {
-  settingsWindow.classList.remove("settings-window-hidden");
+// Open Settings Window and close it
+settingsGearBtn.addEventListener("click", () => {
   settingsWindow.classList.add("settings-window-visible");
+
+  // Close settings window on outside click
+  document.addEventListener("click", (event) => {
+    if (
+      !event.target.closest("#settings-window-el") &&
+      !event.target.matches("#gear-icon")
+    ) {
+      settingsWindow.classList.remove("settings-window-visible");
+      settingsWindow.classList.add("settings-window-hidden");
+    }
+  });
 });
 
-closeSettingsWindow.addEventListener("click", function () {
+closeSettingsWindow.addEventListener("click", () => {
   settingsWindow.classList.remove("settings-window-visible");
   settingsWindow.classList.add("settings-window-hidden");
 });
@@ -32,6 +45,8 @@ const displayNumbers = document.querySelector("#clock-numbers-el");
 const pomodoroTime = document.querySelector("#pomodoro-time-el");
 const shortBreakTime = document.querySelector("#short-break-el");
 const longBreakTime = document.querySelector("#long-break-el");
+
+// ------- Initialize user input for Color Variations
 
 // Setting up Time Settings Object to hold values from the Pomodoro, Short Break and Long Break Time Inputs in the Settings
 const timeValueObject = {
@@ -63,15 +78,13 @@ const globalTimer = {
 let loadTime;
 
 // Initial Progress Bar Position
-let nonMobileBar = 999;
-let mobileBar = 999;
+let nonMobileProgressBar = 999;
+let mobileProgressBar = 999;
 // Pass Pomodoro Timer value into the Clock in the DOM
 pomodoroBtn.addEventListener("click", function () {
   displayNumbers.innerHTML = `${timeValueObject.pomodoroValue}:00`;
   loadTime = timeValueObject.pomodoroValue;
-  // clearInterval(time);
   clearInterval(loadTime);
-  console.log(timeValueObject.pomodoroValue);
   globalTimer.start = loadTime * 60;
 });
 
@@ -80,7 +93,6 @@ shortBreakBtn.addEventListener("click", function () {
   displayNumbers.innerHTML = `${timeValueObject.shortBreakValue}:00`;
   loadTime = timeValueObject.shortBreakValue;
   clearInterval(loadTime);
-  console.log(timeValueObject.shortBreakValue);
   globalTimer.start = loadTime * 60;
 });
 
@@ -89,7 +101,6 @@ longBreakBtn.addEventListener("click", function () {
   displayNumbers.innerHTML = `${timeValueObject.longBreakValue}:00`;
   loadTime = timeValueObject.longBreakValue;
   clearInterval(loadTime);
-  console.log(timeValueObject.longBreakValue);
   globalTimer.start = loadTime * 60;
 });
 
@@ -102,9 +113,13 @@ const startBtn = document.getElementById("btn-start");
 const pauseBtn = document.getElementById("btn-pause");
 const clearBtn = document.getElementById("btn-clear");
 
+// Declaring progress bars for Mobile and Large Screens
+const barMobile = document.getElementById("circle-non-mobile");
+const barNonMobile = document.getElementById("circle-mobile");
+
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", pauseTimer);
-clearBtn.addEventListener("click", clearTimer);
+// clearBtn.addEventListener("click", clearTimer);
 
 // START Time Calculation
 function startTimer() {
@@ -128,26 +143,24 @@ function updateTimer() {
   // update progress bar on large screens
   globalTimer.progressBarLG--;
   // Subtract 16.65 from the current value of the progress bar
-  nonMobileBar = nonMobileBar - 16.65;
+  nonMobileProgressBar = nonMobileProgressBar - 16.65;
   // If the progress bar has reached 0, reset it to the starting value
-  if (nonMobileBar <= 0) {
-    nonMobileBar = 999;
+  if (nonMobileProgressBar <= 0) {
+    nonMobileProgressBar = 999;
   }
 
   // update bar on mobile screens
   globalTimer.progressBarSM--;
   // Subtract 12.30 from the current value of the progress bar
-  mobileBar = mobileBar - 12.3;
+  mobileProgressBar = mobileProgressBar - 12.3;
   // If the progress bar has reached 0, reset it to the starting value
-  if (mobileBar <= 0) {
-    mobileBar = 999;
+  if (mobileProgressBar <= 0) {
+    mobileProgressBar = 999;
   }
 
-  // Update the progress bar in the document
-  document.getElementById("circle-non-mobile").style["stroke-dashoffset"] =
-    nonMobileBar;
-  document.getElementById("circle-mobile").style["stroke-dashoffset"] =
-    mobileBar;
+  // Update the progress bar in the DOM
+  barNonMobile.style["stroke-dashoffset"] = nonMobileProgressBar;
+  barMobile.style["stroke-dashoffset"] = mobileProgressBar;
 
   if (globalTimer.start <= 0) {
     clearInterval(globalTimer.timer); // stop the timer when we hit 0
@@ -156,13 +169,11 @@ function updateTimer() {
     globalTimer.timer = null;
     globalTimer.start = null;
     displayNumbers.innerHTML = `<p class="all-done">All Done!</p>`;
-    document.getElementById("circle-non-mobile").style["stroke-dashoffset"] = 0;
-    document.getElementById("circle-mobile").style["stroke-dashoffset"] = 0;
+    barNonMobile.style["stroke-dashoffset"] = 0;
+    barMobile.style["stroke-dashoffset"] = 0;
     setTimeout(() => {
-      document.getElementById("circle-non-mobile").style[
-        "stroke-dashoffset"
-      ] = 999;
-      document.getElementById("circle-mobile").style["stroke-dashoffset"] = 999;
+      barNonMobile.style["stroke-dashoffset"] = 999;
+      barMobile.style["stroke-dashoffset"] = 999;
       //   displayNumbers.innerHTML = `00:00`;
     }, 6000);
 
@@ -184,26 +195,26 @@ function pauseTimer() {
 }
 
 // CLEAR Timer
-function clearTimer() {
+clearTimerBtn.addEventListener("click", function () {
   clearInterval(globalTimer.timer);
   clearInterval(globalTimer.progressBarLG);
   clearInterval(globalTimer.progressBarSM);
-  clearInterval(globalTimer.start);
   globalTimer.timer = null;
   globalTimer.start = null;
-  globalTimer.progressBarLG = 999;
-  globalTimer.progressBarSM = 999;
-  document.getElementById("circle-non-mobile").style["stroke-dashoffset"] = 999;
-  document.getElementById("circle-mobile").style["stroke-dashoffset"] = 999;
+  globalTimer.progressBarLG = null;
+  globalTimer.progressBarSM = null;
+  barNonMobile.style["stroke-dashoffset"] = 999;
+  barMobile.style["stroke-dashoffset"] = 999;
   startBtn.style.display = "block";
   pauseBtn.style.display = "none";
   displayNumbers.innerHTML = `00:00`;
-}
+  nonMobileProgressBar = 999;
+  mobileProgressBar = 999;
+});
 
-// Initialise the time-bar if statement: if ((initialBarState = 1002.6))
-// in relationship to the following CSS bellow:
+// Progress bar JS code references the following CSS:
 
-// 16.71 is the 1 second clock bar increase in visibility interval derived from dividing dashoffset by 60 minutes
+// 16.65 is the 1 second clock bar increase in visibility interval derived from dividing stroke-dashoffset by 60 minutes for the large screens and adjusted for mobile screens
 //     #circle-non-mobile {
 //     height: 355px;
 //     width: 355px;
