@@ -129,6 +129,12 @@ function startTimer() {
   pauseBtn.style.display = "block";
 
   globalTimer.timer = setInterval(updateTimer, 1000);
+
+  function disableWhileRunning() {
+    pomodoroBtn.disabled = true;
+    shortBreakBtn.disabled = true;
+    longBreakBtn.disabled = true;
+  }
 }
 
 // Update Timer
@@ -196,20 +202,26 @@ function pauseTimer() {
 
 // CLEAR Timer
 clearTimerBtn.addEventListener("click", function () {
-  clearInterval(globalTimer.timer);
-  clearInterval(globalTimer.progressBarLG);
-  clearInterval(globalTimer.progressBarSM);
-  globalTimer.timer = null;
-  globalTimer.start = null;
-  globalTimer.progressBarLG = null;
-  globalTimer.progressBarSM = null;
-  barNonMobile.style["stroke-dashoffset"] = 999;
-  barMobile.style["stroke-dashoffset"] = 999;
-  startBtn.style.display = "block";
-  pauseBtn.style.display = "none";
-  displayNumbers.innerHTML = `00:00`;
-  nonMobileProgressBar = 999;
-  mobileProgressBar = 999;
+  let confirmAction = confirm("Are you sure you want to reset the Timer?");
+
+  if (confirmAction) {
+    clearInterval(globalTimer.timer);
+    clearInterval(globalTimer.progressBarLG);
+    clearInterval(globalTimer.progressBarSM);
+    globalTimer.timer = null;
+    globalTimer.start = null;
+    globalTimer.progressBarLG = null;
+    globalTimer.progressBarSM = null;
+    barNonMobile.style["stroke-dashoffset"] = 999;
+    barMobile.style["stroke-dashoffset"] = 999;
+    startBtn.style.display = "block";
+    pauseBtn.style.display = "none";
+    displayNumbers.innerHTML = `00:00`;
+    nonMobileProgressBar = 999;
+    mobileProgressBar = 999;
+  } else {
+    alert("Timer will continue...");
+  }
 });
 
 // Progress bar JS code references the following CSS:
@@ -226,3 +238,41 @@ clearTimerBtn.addEventListener("click", function () {
 //     stroke-linecap: round;
 //     transform: translate(0.3%, 89%) rotate(-90deg);
 //   }
+
+// Settings for Fonts and Color
+
+// Colour buttons in the settings menu
+const orangeColorRadioBtn = document.getElementById("orange-checkbox");
+const turquoiseColorRadioBtn = document.getElementById("turquoise-checkbox");
+const purpleColorRadioBtn = document.getElementById("purple-checkbox");
+
+// Font buttons in the settings menu
+const kumbhSansFontRadioBtn = document.getElementById("kumbh-sans");
+const robotoSlabFontRadioBtn = document.getElementById("roboto-slab");
+const spaceMonoFontRadioBtn = document.getElementById("space-mono");
+
+// Selecting the :root Theme
+const rootTheme = document.querySelector(":root");
+
+orangeColorRadioBtn.addEventListener("click", () => {
+  rootTheme.style.setProperty("--current-color", "#F87070");
+});
+turquoiseColorRadioBtn.addEventListener("click", () => {
+  rootTheme.style.setProperty("--current-color", "#70F3F8");
+});
+purpleColorRadioBtn.addEventListener("click", () => {
+  rootTheme.style.setProperty("--current-color", "#D881F8");
+});
+
+// Select fonts
+spaceMonoFontRadioBtn.addEventListener("click", () => {
+  rootTheme.style.setProperty("--current-font", "'Space Mono', monospace");
+});
+
+robotoSlabFontRadioBtn.addEventListener("click", () => {
+  rootTheme.style.setProperty("--current-font", "'Roboto Slab', serif");
+});
+
+kumbhSansFontRadioBtn.addEventListener("click", () => {
+  rootTheme.style.setProperty("--current-font", "'Kumbh Sans', sans-serif");
+});
