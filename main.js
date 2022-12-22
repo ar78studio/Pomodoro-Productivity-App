@@ -114,8 +114,8 @@ const pauseBtn = document.getElementById("btn-pause");
 const clearBtn = document.getElementById("btn-clear");
 
 // Declaring progress bars for Mobile and Large Screens
-const barMobile = document.getElementById("circle-non-mobile");
-const barNonMobile = document.getElementById("circle-mobile");
+const barMobile = document.getElementById("circle-mobile");
+const barNonMobile = document.getElementById("circle-non-mobile");
 
 startBtn.addEventListener("click", startTimer);
 pauseBtn.addEventListener("click", pauseTimer);
@@ -128,17 +128,11 @@ function startTimer() {
   startBtn.style.display = "none";
   pauseBtn.style.display = "block";
 
-  globalTimer.timer = setInterval(updateTimer, 1000);
-
-  function disableWhileRunning() {
-    pomodoroBtn.disabled = true;
-    shortBreakBtn.disabled = true;
-    longBreakBtn.disabled = true;
-  }
+  globalTimer.timer = setInterval(updateLargeBarTimer, 1000);
 }
 
 // Update Timer
-function updateTimer() {
+function updateLargeBarTimer() {
   globalTimer.start--;
   const minutes = Math.trunc(globalTimer.start / 60).toString();
   const seconds = Math.trunc(globalTimer.start % 60).toString();
@@ -158,7 +152,8 @@ function updateTimer() {
   // update bar on mobile screens
   globalTimer.progressBarSM--;
   // Subtract 12.30 from the current value of the progress bar
-  mobileProgressBar = mobileProgressBar - 12.3;
+  mobileProgressBar = mobileProgressBar - 12.5;
+
   // If the progress bar has reached 0, reset it to the starting value
   if (mobileProgressBar <= 0) {
     mobileProgressBar = 999;
@@ -219,8 +214,6 @@ clearTimerBtn.addEventListener("click", function () {
     displayNumbers.innerHTML = `00:00`;
     nonMobileProgressBar = 999;
     mobileProgressBar = 999;
-  } else {
-    alert("Timer will continue...");
   }
 });
 

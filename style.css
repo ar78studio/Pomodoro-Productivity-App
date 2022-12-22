@@ -86,25 +86,13 @@ select {
   --robotoslab-font: 'Roboto Slab', serif;
   --spacemono-font: 'Space Mono', monospace;
 
-  --current-font: 'Kumbh Sans', sans-serif;
+  --current-font: 'Space Mono', monospace;
   --current-color: #F87070;
 
   --orange-color: #F87070;
   --turquoise-color: #70F3F8;
   --pink-color: #D881F8;
 }
-
-/* .orange-bg-F87070 {
-  background: #F87070;
-}
-
-.blue-bg-70F3F8 {
-  background: #70F3F8;
-}
-
-.purple-bg-D881F8 {
-  background: #D881F8;
-} */
 
 body {
     font-family: var(--current-font);
@@ -876,8 +864,9 @@ button {
 }
 
 .apply-settings-btn button:hover {
-  opacity: 0.9;
-  backdrop-filter: blur(8rem);
+  
+  opacity: 0.96;
+
 }
 
 
@@ -1185,8 +1174,7 @@ input {
   stroke: var(--current-color);
   stroke-width: 10;
   stroke-dasharray: 1002.6;
-  /* stroke-dashoffset: 999; */
-  /* stroke-dashoffset: 250; */
+  stroke-dashoffset: 999;
   stroke-linecap: round;
   transform: translate(0.3%, 89%) rotate(-90deg);
 }
@@ -1663,8 +1651,7 @@ input {
 }
 
 .apply-settings-btn button:hover {
-  opacity: 0.9;
-  backdrop-filter: blur(8rem);
+  opacity: 0.96;
 }
 
 /* End Apply Settings Button  */
