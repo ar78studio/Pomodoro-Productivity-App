@@ -128,11 +128,11 @@ function startTimer() {
   startBtn.style.display = "none";
   pauseBtn.style.display = "block";
 
-  globalTimer.timer = setInterval(updateLargeBarTimer, 1000);
+  globalTimer.timer = setInterval(updateTimer, 1000);
 }
 
 // Update Timer
-function updateLargeBarTimer() {
+function updateTimer() {
   globalTimer.start--;
   const minutes = Math.trunc(globalTimer.start / 60).toString();
   const seconds = Math.trunc(globalTimer.start % 60).toString();
@@ -140,6 +140,12 @@ function updateLargeBarTimer() {
     2,
     "0"
   )}`;
+
+  // Disable Timer and Breaks Buttons while timer is running
+  pomodoroBtn.setAttribute("disabled", "");
+  shortBreakBtn.setAttribute("disabled", "");
+  longBreakBtn.setAttribute("disabled", "");
+
   // update progress bar on large screens
   globalTimer.progressBarLG--;
   // Subtract 16.65 from the current value of the progress bar
@@ -183,6 +189,11 @@ function updateLargeBarTimer() {
 
     pauseBtn.style.display = "none";
     startBtn.style.display = "block";
+
+    //Enable Timer and Breaks Buttons when the time runs out
+    pomodoroBtn.removeAttribute("disabled", "");
+    shortBreakBtn.removeAttribute("disabled", "");
+    longBreakBtn.removeAttribute("disabled", "");
   }
 }
 
@@ -214,6 +225,10 @@ clearTimerBtn.addEventListener("click", function () {
     displayNumbers.innerHTML = `00:00`;
     nonMobileProgressBar = 999;
     mobileProgressBar = 999;
+
+    pomodoroBtn.removeAttribute("disabled", "");
+    shortBreakBtn.removeAttribute("disabled", "");
+    longBreakBtn.removeAttribute("disabled", "");
   }
 });
 
