@@ -157,11 +157,11 @@ function updateTimer() {
 
   // update bar on mobile screens
   globalTimer.progressBarSM--;
-  // Subtract 12.30 from the current value of the progress bar
+  // Subtract 12.5 from the current value of the progress bar. Directly correlated to the SVG size in HTML <circle id="circle-mobile-track" r="120" cx="175" cy="171" ...
   mobileProgressBar = mobileProgressBar - 12.5;
 
-  // If the progress bar has reached 0, reset it to the starting value
-  if (mobileProgressBar <= 0) {
+  // If the progress bar has reached 249 (derived from 999 - (12.5 * 60), reset it to the starting value
+  if (mobileProgressBar <= 249) {
     mobileProgressBar = 999;
   }
 
@@ -177,7 +177,7 @@ function updateTimer() {
     globalTimer.start = null;
     displayNumbers.innerHTML = `<p class="all-done">All Done!</p>`;
     barNonMobile.style["stroke-dashoffset"] = 0;
-    barMobile.style["stroke-dashoffset"] = 0;
+    barMobile.style["stroke-dashoffset"] = 249;
     setTimeout(() => {
       barNonMobile.style["stroke-dashoffset"] = 999;
       barMobile.style["stroke-dashoffset"] = 999;
