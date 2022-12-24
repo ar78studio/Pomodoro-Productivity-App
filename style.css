@@ -224,7 +224,7 @@ button {
 }
 
   .pomodoro-btn-label input:checked ~ .pomodoro-radiocheck {
-    background: var(--orange-color);
+    background: var(--current-color);
     color: #EFF1FA;
   }
 
