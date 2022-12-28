@@ -42,9 +42,11 @@ const displayNumbers = document.querySelector("#clock-numbers-el");
 
 // ------- Initialize user input for Pomodoro, Short Break and Long Break
 
-const pomodoroTime = document.querySelector("#pomodoro-time-el");
-const shortBreakTime = document.querySelector("#short-break-el");
-const longBreakTime = document.querySelector("#long-break-el");
+const pomodoroTime = document.getElementById("pomodoro-time-el");
+
+const shortBreakTime = document.getElementById("short-break-el");
+
+const longBreakTime = document.getElementById("long-break-el");
 
 // ------- Initialize user input for Color Variations
 
@@ -58,9 +60,9 @@ const timeValueObject = {
 // ------- Pass All the Values from the Settings Window on Apply Settings Button click into the timeValueObject to later be used by the Pomodoro, Short Break, Long Break buttons on the Main Page
 
 applySettingsBtn.addEventListener("click", function () {
-  timeValueObject.pomodoroValue = pomodoroTime.value;
-  timeValueObject.shortBreakValue = shortBreakTime.value;
-  timeValueObject.longBreakValue = longBreakTime.value;
+  timeValueObject.pomodoroValue = Math.ceil(pomodoroTime.value);
+  timeValueObject.shortBreakValue = Math.ceil(shortBreakTime.value);
+  timeValueObject.longBreakValue = Math.ceil(longBreakTime.value);
   // Close Settings Window on Apply Button click
   settingsWindow.classList.remove("settings-window-visible");
   settingsWindow.classList.add("settings-window-hidden");
@@ -74,7 +76,7 @@ const globalTimer = {
   progressBarSM: null,
 };
 
-// declare the global time holder to load Pomodoro, Short Break and Long Break into when the appropriate button is pressed in the main mode selector
+// declare the global time holder to load Pomodoro, Short Break and Long Break into when the appropriate button is pressed in the DOM main mode selector
 let loadTime;
 
 // Initial Progress Bar Position
