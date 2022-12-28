@@ -129,6 +129,8 @@ button {
   margin: 0;
   top: 50%;
   left: 50%;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
   transform: translate(-50%, -50%);
 }
 
@@ -507,22 +509,27 @@ button {
 }
 
 /* -------------- SETTINGS GEAR BUTTON ------------- */
-  
-  
-  #gear-icon {
-    color: #D7E0FF;
-    opacity: 0.5;
-    cursor: pointer;
-    height: 40px;
-    margin: 0 auto;
-    margin-top: 3rem;
-  }
-  
-  #gear-icon img:hover {
-    color: #D7E0FF;
-    opacity: 1;
-    cursor: pointer;
-  }
+
+.settingsBtn {
+  justify-content: center;
+  margin: 0 auto;
+  border: 1px dashed green;
+}
+
+
+.settingsGearBtn {
+  opacity: 0.5;
+  height: 40px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 7rem;
+  border: 1px solid blue;
+}
+
+.settingsGearBtn:hover {
+  opacity: 1;
+  cursor: pointer;
+}
 
 /* -------------- SETTINGS WINDOW ------------- */
 
@@ -935,8 +942,8 @@ input {
  {
 
  .main-wrap {
-  margin-top: 5rem;
-  margin-bottom: 8rem;
+  padding-top: 5rem;
+  padding-bottom: 10rem;
  }
 
   #pomodoro-h2 {
@@ -947,17 +954,23 @@ input {
     margin-top: 5rem;
   }
 
-  #gear-icon {
-    color: #D7E0FF;
-    opacity: 0.5;
-    height: 60px;
-    cursor: pointer;
+  .settingsBtn {
+    justify-content: center;
     margin: 0 auto;
-    margin-top: 3rem;
+    border: 1px dashed green;
   }
   
-  #gear-icon img:hover {
-    color: #D7E0FF;
+
+  .settingsGearBtn {
+    opacity: 0.5;
+    height: 50px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 7rem;
+    border: 1px solid blue;
+  }
+
+  .settingsGearBtn:hover {
     opacity: 1;
     cursor: pointer;
   }

@@ -1,5 +1,5 @@
 // ------- Open Settings Window by pressing Gear Button
-// const settingsGearBtn = document.getElementById("settings-gear-btn");
+
 const settingsGearBtn = document.getElementById("gear-icon");
 const closeSettingsWindow = document.getElementById("close-window-btn");
 const settingsWindow = document.getElementById("settings-window-el");
