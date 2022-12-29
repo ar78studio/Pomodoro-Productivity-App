@@ -82,6 +82,7 @@ let loadTime;
 // Initial Progress Bar Position
 let nonMobileProgressBar = 999;
 let mobileProgressBar = 999;
+
 // Pass Pomodoro Timer value into the Clock in the DOM
 pomodoroBtn.addEventListener("click", function () {
   displayNumbers.innerHTML = `${timeValueObject.pomodoroValue}:00`;
@@ -130,7 +131,11 @@ function startTimer() {
   startBtn.style.display = "none";
   pauseBtn.style.display = "block";
 
-  globalTimer.timer = setInterval(updateTimer, 1000);
+  const currentTime = new Date().getTime();
+
+  console.log(currentTime);
+
+  globalTimer.timer = setInterval(updateTimer, currentTime / 1000);
 }
 
 // Update Timer
