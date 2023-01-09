@@ -131,11 +131,7 @@ function startTimer() {
   startBtn.style.display = "none";
   pauseBtn.style.display = "block";
 
-  const currentTime = new Date().getTime();
-
-  console.log(currentTime);
-
-  globalTimer.timer = setInterval(updateTimer, currentTime / 1000);
+  globalTimer.timer = setInterval(updateTimer, 1000);
 }
 
 // Update Timer
@@ -188,7 +184,6 @@ function updateTimer() {
     setTimeout(() => {
       barNonMobile.style["stroke-dashoffset"] = 999;
       barMobile.style["stroke-dashoffset"] = 999;
-      //   displayNumbers.innerHTML = `00:00`;
     }, 6000);
 
     let ding = new Audio("/ding.mp3");
