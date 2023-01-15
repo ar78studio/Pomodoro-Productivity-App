@@ -234,7 +234,7 @@ clearTimerBtn.addEventListener("click", function () {
   }
 });
 
-// Progress bar JS code references the following CSS:
+// NOTE* Progress bar JS code references the following CSS:
 
 // 16.65 is the 1 second clock bar increase in visibility interval derived from dividing stroke-dashoffset by 60 minutes for the large screens and adjusted for mobile screens
 //     #circle-non-mobile {
@@ -248,6 +248,7 @@ clearTimerBtn.addEventListener("click", function () {
 //     stroke-linecap: round;
 //     transform: translate(0.3%, 89%) rotate(-90deg);
 //   }
+// NOTE*
 
 // Settings for Fonts and Color
 

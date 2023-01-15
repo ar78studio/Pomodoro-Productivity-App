@@ -98,6 +98,7 @@ body {
     font-family: var(--current-font);
     background: #1E213F;
     position: relative;
+    overflow-x: hidden;
 }
 
 /* FONTS */
@@ -285,7 +286,6 @@ button {
         color: #D7E0FF;
         height: 48px;
         width: 106px;
-        /* margin-left: 25px; */
         margin-right: 0.3rem;
         border: none;
         border-radius: 50px;
@@ -399,7 +399,6 @@ button {
 /* ------- LOADER ------- */
 
 .track {
-    /* stroke: #161932; */
     fill: none;
 }
 
@@ -446,7 +445,6 @@ button {
 #btn-start {
     /* display: none; */
     position: absolute;
-    /* margin-left: 25px; */
     margin: 0 auto;
     padding-left: 1.2em;
     background: none;
@@ -488,7 +486,6 @@ button {
 #btn-clear {
   /* display: none; */
   position: absolute;
-  /* margin-left: 25px; */
   margin: 0 auto;
   padding-left: 1.2em;
   background: none;
@@ -533,11 +530,9 @@ button {
 
 .settings-window-hidden {
   visibility: hidden;
-  /* display: none; */
 }
 
 .settings-window-visible {
- /* display: block; */
  visibility: visible;
 } 
 
@@ -578,17 +573,6 @@ button {
   padding: 20px 0 20px 30px;
 }
 
-/* #close-window-btn {
-  background-image: url(images/X-close-window-btn.png);
-  background-repeat: none;
-  background-color: transparent;
-  border: none;
-  height: 14px;
-  width: 14px;
-  margin: 30px 30px 30px 30px;
-  cursor: pointer;
-} */
-
 #close-window-btn {
   position: absolute;
   right: 30px;
@@ -624,8 +608,6 @@ button {
   align-items: center;
   margin: 10px 30px;
 }
-
-
 
 .settings-time-label {
   font-family: var(--current-font);
@@ -684,7 +666,7 @@ button {
   width: 0;
 }
 
-/* Create a custom checkbox and because of relative positioning having moved it down the size of its height of 2.5rem, we move it back up via top: 2.5rem; which is again its height */
+/* Custom checkbox */
 .checkmark {
   position: relative;
   top: -2.5rem;
@@ -787,12 +769,10 @@ button {
 /* Checkmark Orange */
 .checkmark-orange {
     position: relative;
-    /* top: -0.5rem; */
     height: 2.5rem;
     width: 2.5rem;
     background: transparent;
     background-color: transparent;
-    /* transition-duration: 0.5s; */
     color: transparent;
   }
   
@@ -811,7 +791,6 @@ button {
     width: 2.5rem;
     background: transparent;
     background-color: transparent;
-    /* transition-duration: 0.5s; */
     color: transparent;
   }
   
@@ -832,7 +811,6 @@ button {
     width: 2.5rem;
     background: transparent;
     background-color: transparent;
-    /* transition-duration: 0.5s; */
     color: transparent;
   }
   
@@ -906,14 +884,6 @@ button {
 
 
 /* ------------------ INPUT ARROWS INSIDE THE TIME BOXES ------------------ */
-
-/* input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {  
-
-   opacity: 1;
-   cursor: pointer;
-
-} */
 
 input {
   width: 140px;
@@ -1004,7 +974,6 @@ input {
   height: 48px;
   min-width: 120px;
   margin-left: 5px;
-  /* border: 1px solid red; */
   border-radius: 50px;
   font-family: var(--current-font);
   font-size: 12px;
@@ -1025,18 +994,6 @@ input {
 .pomodoro-btn-label:hover {
   background: #161932;
   color: rgba(215, 224, 255);
-  /* height: 48px;
-  width: 120px;
-  margin-left: 5px; */
-  /* border: none; */
-  /* border: 1px solid rgb(1, 255, 115);
-  border-radius: 50px;
-  font-family: var(--current-font);
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  z-index: 1; */
 }
   
 .pomodoro-radiocheck {
@@ -1113,7 +1070,6 @@ input {
         color: #D7E0FF;
         height: 48px;
         width: 120px;
-        /* margin-left: 25px; */
         margin-right: 0.3rem;
         border: none;
         border-radius: 50px;
@@ -1218,7 +1174,7 @@ input {
   fill: none;
 }
 
-/* 16.71 is the 1 second interval */
+/* 16.71 is the 1 second interval for mobile, but double check by deviding stroke-dasharray for your SVG progress bar size by 60 minutes */
 #circle-non-mobile {
   height: 355px;
   width: 355px;
@@ -1268,7 +1224,6 @@ input {
 #btn-start {
   display: block;
   position: absolute;
-  /* margin-left: 25px; */
   margin: 0 auto;
   text-align: center;
   padding-left: 15px;
@@ -1276,7 +1231,6 @@ input {
   border: none;
   color: #d7e0ff;
   font-family: var(--current-font);
-  /* font-size: 28px; */
   font-weight: bold;
   font-size: 16px;
   letter-spacing: 12px;
@@ -1291,7 +1245,6 @@ input {
 #btn-pause {
   display: none;
   position: absolute;
-  /* margin-left: 25px; */
   margin: 0 auto;
   text-align: center;
   padding-left: 15px;
@@ -1299,7 +1252,6 @@ input {
   border: none;
   color: #d7e0ff;
   font-family: var(--current-font);
-  /* font-size: 28px; */
   font-weight: bold;
   font-size: 16px;
   letter-spacing: 12px;
@@ -1313,7 +1265,6 @@ input {
 }
 
 #btn-clear {
-  /* display: none; */
   position: absolute;
   margin: 0 auto;
   background: none;
@@ -1332,8 +1283,6 @@ input {
 /* ------------------- SETTINGS WINDOW STYLING -------------------- */
 
 .settings-window-wrap {
-  /* display: none; */
-  /* visibility: hidden; */
   margin: 0 auto;
   position: relative;
   margin-top: 10rem;
@@ -1342,11 +1291,9 @@ input {
 
 .settings-window-hidden {
    visibility: hidden;
-   /* display: none; */
 }
 
 .settings-window-visible {
-  /* display: block; */
   visibility: visible;
 } 
 
@@ -1375,7 +1322,6 @@ input {
 
 .settings-header h3 {
   font-family: var(--current-font);
-  /* text-align: left; */
   font-size: 20px;
   font-weight: bold;
   color: #161932;
@@ -1408,7 +1354,6 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin: 0 auto; */
 }
 
 .settings-time-settings {
@@ -1475,7 +1420,7 @@ input {
   width: 0;
 }
 
-/* Create a custom checkbox and because of relative positioning having moved it down the size of its height of 2.5rem, we move it back up via top: 2.5rem; which is again its height */
+/* Custom checkbox */
 .checkmark {
   position: relative;
   top: -2.5rem;
@@ -1494,12 +1439,6 @@ input {
   background: #161932;
   color: #EFF1FA;
 }
-
-/* .checkmark:after {
-  content: "";
-  position: absolute;
-  opacity: 0;
-} */
 
 /* START: Expanding Circle for Input Label Background */
 .font-checkbox-bg:hover {
@@ -1586,17 +1525,14 @@ input {
     width: 0;
   }
 
-/* Create a custom checkbox and because of relative positioning having moved it down the size of its height of 2.5rem, we move it back up via top: 2.5rem; which is again its height */
 
 /* Checkmark Orange */
 .checkmark-orange {
     position: relative;
-    /* top: -0.5rem; */
     height: 2.5rem;
     width: 2.5rem;
     background: transparent;
     background-color: transparent;
-    /* transition-duration: 0.5s; */
     color: transparent;
   }
   
@@ -1615,7 +1551,6 @@ input {
     width: 2.5rem;
     background: transparent;
     background-color: transparent;
-    /* transition-duration: 0.5s; */
     color: transparent;
   }
   
@@ -1636,7 +1571,6 @@ input {
     width: 2.5rem;
     background: transparent;
     background-color: transparent;
-    /* transition-duration: 0.5s; */
     color: transparent;
   }
   
